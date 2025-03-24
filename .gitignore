@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env 
+# *.log Consider this later
+# *.png Consider this later
+venv/
+
+# .env allows us to hide API keys, passwords, or local paths. They are not pushed.
