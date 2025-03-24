@@ -23,4 +23,15 @@ response = requests.post(
 
 parsed_data = response.json()
 
+image_base64 = parsed_data['processed_image']
+
+# Decode the image
+image_data = base64.b64decode(image_base64)
+
+# Write to a PNG file
+with open("screenshots/annotated_screenshot.png", "wb") as f:
+    f.write(image_data)
+
+print("Saved: screenshots/annotated_screenshot.png")
+
 print(parsed_data)
