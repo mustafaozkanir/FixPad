@@ -3,7 +3,7 @@ import os
 import base64
 
 
-api_key = os.getenv("INFERENCE_API_KEY_OMNIPARSER");
+api_key = os.getenv("INFERENCE_API_KEY_OMNIPARSER")
 
 
 
