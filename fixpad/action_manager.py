@@ -2,6 +2,7 @@ import pyautogui
 import time
 import json
 from util import clean_json_response
+import pyperclip
 
 # Global delay to adjust the slight pause between actions
 delay = 0.2
@@ -21,13 +22,21 @@ def execute_actions(actions):
     """
     for action in actions:
         if action["type"] == "moveTo":
-            
             x, y = bbox_to_center_xy(action["bbox"])
             print(f"➡️ Moving to ({x}, {y})")
             pyautogui.moveTo(x, y, duration=0.3)
+
         elif action["type"] == "click":
             print("🖱️ Clicking")
             pyautogui.click()
+
+        elif action["type"] == "paste":
+            text = action["text"]
+            pyperclip.copy(text)
+            pyperclip.copy(text)
+            pyautogui.hotkey("ctrl", "v")
+            time.sleep(0.2)
+            
         else:
             print(f"⚠️ Unknown action type: {action.get('type')}")
         

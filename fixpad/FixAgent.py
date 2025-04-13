@@ -6,7 +6,7 @@ import json
 import os
 from datetime import datetime
 
-from prompts import system_prompt, observation_prompt
+from prompts import system_prompt, observation_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
 from omniparser import get_parsed_image_content
 from action_manager import parse_actions, execute_actions
 
@@ -71,31 +71,6 @@ class FixAgent:
         #check_token_budget(all_input)
         # print(full_prompt)
         return response.text
-    
-    
-def main():
-    fix_agent = FixAgent(system=system_prompt)
-    screenshot_path = "../screenshots/screenshot.png"
-
-    # Update agent with parsed UI from screenshot
-    fix_agent.observe(screenshot_path)
-
-    result = fix_agent()
-    print(result)
-"""
-    result = fix_agent()
-    print(result)
-
-    screenshot_path = "../screenshots/Screenshot (60).png"
-    parsed_content, image_content = get_parsed_image_content(screenshot_path)
-    next_prompt = f"Observation: {parsed_content}"
-
-    result = fix_agent(next_prompt)
-    print(result)
-    #print(fix_agent.messages)
-"""
-    #py.moveTo(18, 30)
-    #py.click()
 
 def agent_loop(bug_report, max_iterations):
     os.makedirs("screenshots", exist_ok=True)
@@ -111,10 +86,14 @@ def agent_loop(bug_report, max_iterations):
 
     # STEP 3: Format the system prompt with bug report and parsed content
     formatted_prompt = system_prompt.format(
+        available_actions = AVAILABLE_ACTIONS,
         bug_report=bug_report,
         image=initial_screenshot_path,
-        parsed_content=json.dumps(parsed_content, indent=2)
+        parsed_content=json.dumps(parsed_content, indent=2),
+        example_response = EXAMPLE_RESPONSE
     )
+
+    print(formatted_prompt)
 
     # STEP 4: Create agent with full system prompt
     fix_agent = FixAgent(system=formatted_prompt)
@@ -144,19 +123,37 @@ def agent_loop(bug_report, max_iterations):
         formatted_observation_prompt = observation_prompt.format(
             bug_report = bug_report,
             image=screenshot_path,
-            parsed_content=json.dumps(parsed_content, indent=2)
+            parsed_content=json.dumps(parsed_content, indent=2),
+            available_actions = AVAILABLE_ACTIONS,
+            example_response = EXAMPLE_RESPONSE
         )        
         fix_agent(formatted_observation_prompt)
 
 
 # bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Binary Content Copy. Result: NPP crashes."
-bug_report = "STR: Paste the following lines in a new document. " 
-"Test "
-"Test "
-"Test "
-"Test "
-"Test "
-"Place the caret at line 3. View -> Hide Lines. Place the caret at line 2.View -> Hide Lines. Click on the show-lines markers. Click on the single show-lines marker."
+
+bug_report = """Paste the following lines in a new document:
+
+Test
+Test
+Test
+Test
+Test
+
+Place the caret at line 3.
+Go to View → Hide Lines.
+Place the caret at line 2.
+Go to View → Hide Lines.
+Click on the show-lines markers.
+
+You should get this:
+(Visual showing lines 2–4 collapsed.)
+
+Click on the single show-lines marker.
+
+Result:
+Notepad++ crashes."""
+
 
 agent_loop(bug_report=bug_report, max_iterations=4)
 

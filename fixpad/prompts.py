@@ -1,3 +1,33 @@
+AVAILABLE_ACTIONS = """
+Available Actions:
+
+1. moveTo:
+  Moves the mouse to the specified screen coordinate.
+  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
+
+2. click:
+  Clicks the mouse at the current location.
+  Format: {{"type": "click"}}
+
+3. paste:
+  Pastes the given text at the current cursor location.
+  Format: {{"type": "paste", "text": "your text here"}}
+
+You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse
+
+"""
+
+EXAMPLE_RESPONSE = """
+Example Response:
+{{
+  "thought": "The first step in Steps to Reproduce is Edit. So, I need to open the Edit menu, which will possibly include second step, i.e., Paste Special",
+  "actions": [
+    {{"type": "moveTo", "bbox": [0.1, 0.05, 0.2, 0.15]}},
+    {{"type": "click"}}
+  ]
+}}
+"""
+
 system_prompt = """You are a Notepad++ bug reproduction agent.
 
 You run in a loop of Thought, Action, Observation.
@@ -11,19 +41,7 @@ Use Action to return one or more PyAutoGUI-compatible actions in structured JSON
 Observation will be the result of running those actions — a screenshot and parsed UI by Omniparser v2.
 
 ---
-
-  Available actions are:
-
-  1. moveTo:
-    Moves the mouse to the specified screen coordinate.
-    Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
-
-  2. click:
-    Clicks the mouse at the current location.
-    Format: {{"type": "click"}}
-
-You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse.
-
+{available_actions}
 ---
 
 BUG REPORT:
@@ -40,15 +58,7 @@ Format your response exactly like this — only return a valid JSON object with 
 - "thought": your reasoning about what to do next
 - "actions": a list of PyAutoGUI-style actions to execute
 
-Example:
-
-{{
-  "thought": "I need to open the Edit menu to access Paste Special.",
-  "actions": [
-    {{"type": "moveTo", "bbox": [0.1, 0.05, 0.2, 0.15]}},
-    {{"type": "click"}}
-  ]
-}}
+{example_response}
 
 Later, you will be called again with:
 
@@ -88,25 +98,8 @@ Current UI Observation:
 - parsed_content: {parsed_content}
 
 ---
-
-Available Actions:
-1. moveTo:
-  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
-
-2. click:
-  Format: {{"type": "click"}}
-
-You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse.
-
-
+{available_actions}
 ---
 
-Example Response:
-{{
-  "thought": "I need to open the Edit menu to access Paste Special.",
-  "actions": [
-    {{"type": "moveTo", "bbox": [0.1, 0.05, 0.2, 0.15]}},
-    {{"type": "click"}}
-  ]
-}}
+{example_response}
 """
