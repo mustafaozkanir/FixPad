@@ -10,7 +10,7 @@ import base64
 api_key = os.getenv("INFERENCE_API_KEY_OMNIPARSER")
 
 
-with open('screenshots/screenshot.png', 'rb') as image_file:
+with open('../screenshots/screenshot.png', 'rb') as image_file:
     image_data = base64.b64encode(image_file.read()).decode('utf-8')
 
 headers = {
@@ -35,32 +35,32 @@ model = GenerativeModel("gemini-2.0-flash-001")
 # ✅ Define function to ask the LLM
 def decide_action(ui_json, goal):
     prompt = f"""
-You are a UI agent.
+                You are a UI agent.
 
-You will receive a list of UI elements detected in a screenshot (in JSON format), and a goal to accomplish.
+                You will receive a list of UI elements detected in a screenshot (in JSON format), and a goal to accomplish.
 
-Each UI element includes:
-- text: label or name (e.g., "Replace")
-- coordinates: bounding box [left, top, right, bottom]
+                Each UI element includes:
+                - text: label or name (e.g., "Replace")
+                - coordinates: bounding box [left, top, right, bottom]
 
-Respond with the most appropriate action in **this JSON format**:
+                Respond with the most appropriate action in **this JSON format**:
 
-[
-  {{
-    "action": "click",
-    "target": "Replace",
-    "coordinates": [0.5351152420043945, 0.08042865991592407, 0.5507508516311646, 0.11287731677293777]
-  }}
-]
+                [
+                {{
+                    "action": "click",
+                    "target": "Replace",
+                    "coordinates": [0.5351152420043945, 0.08042865991592407, 0.5507508516311646, 0.11287731677293777]
+                }}
+                ]
 
-Do NOT include any explanations or extra text — only return the JSON.
+                Do NOT include any explanations or extra text — only return the JSON.
 
---- UI ELEMENTS ---
-{json.dumps(ui_json, indent=2)}
+                --- UI ELEMENTS ---
+                {json.dumps(ui_json, indent=2)}
 
---- GOAL ---
-{goal}
-"""
+                --- GOAL ---
+                {goal}
+            """
 
     response = model.generate_content(prompt)
     return response.text.strip()

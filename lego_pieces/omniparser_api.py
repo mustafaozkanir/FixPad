@@ -5,9 +5,7 @@ import base64
 
 api_key = os.getenv("INFERENCE_API_KEY_OMNIPARSER")
 
-
-
-with open('screenshots/screenshot.png', 'rb') as image_file:
+with open('../screenshots/screenshot.png', 'rb') as image_file:
     image_data = base64.b64encode(image_file.read()).decode('utf-8')
 
 headers = {
@@ -29,9 +27,11 @@ image_base64 = parsed_data['processed_image']
 image_data = base64.b64decode(image_base64)
 
 # Write to a PNG file
+"""
 with open("screenshots/annotated_screenshot.png", "wb") as f:
     f.write(image_data)
 
 print("Saved: screenshots/annotated_screenshot.png")
+"""
 
 print(parsed_data)

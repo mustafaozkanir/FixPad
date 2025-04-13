@@ -8,5 +8,5 @@ vertexai.init(project="gen-lang-client-0225271187", location="us-central1")
 model = GenerativeModel("gemini-2.0-flash-001")
 
 # Send a prompt
-response = model.generate_content("Explain how AI works in a few words.")
+response = model.generate_content("Under which tab do you think column editor is in Notepad++ application?")
 print(response.text)
