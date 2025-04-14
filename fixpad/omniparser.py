@@ -29,7 +29,6 @@ def get_parsed_image_content(image_path):
             "box_threshold": 0.5,
             "iou_threshold": 0.5,
             "text_threshold": 0.2
-           
     }
 
     response = requests.post(
