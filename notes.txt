@@ -1,2 +1,8 @@
 1. ```json ``` wrapperını her zaman eklemiyor ben sadece nolur nolmaz diye util.py'deki clean_json_response'u kullanıyorum
-2. 
+2. Hala copy binary content olmuyor
+3. Hala yeşil üçgene tıklayamıyor
+4. Hala regular expression'a tıklamak sıkıntı (Şu an yapıyor omniparser parametleri şöyle:  "box_threshold": 0.05,
+                                                                                            "iou_threshold": 0.7,
+                                                                                            "text_threshold": 0.8)
+
+                                                                

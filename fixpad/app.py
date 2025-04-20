@@ -4,10 +4,10 @@ import os
 
 # Custom Project Modules
 from prompts import system_prompt, action_prompt, observation_prompt, reflection_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
-from env_manager import launch_notepadpp, capture_notepadpp_only
+from env_manager import launch_notepadpp, capture_notepadpp_only, detect_crash, save_annotated_image
 from action_manager import parse_actions, execute_actions
 from omniparser import get_parsed_image_content
-from util import clean_json_response, init_vertex_ai
+from util import clean_json_response, init_vertex_ai, log_parsed_content
 from agents import ActionAgent, ReflectionAgent, ObserverAgent
 
 init_vertex_ai()
@@ -15,6 +15,7 @@ init_vertex_ai()
 def agent_loop(bug_report, max_iterations):
 
     os.makedirs("screenshots", exist_ok=True)
+    os.makedirs("annotated_screenshots", exist_ok=True)
 
     launch_notepadpp()
 
@@ -22,6 +23,11 @@ def agent_loop(bug_report, max_iterations):
     capture_notepadpp_only(initial_screenshot_path)
 
     parsed_content, image_content = get_parsed_image_content(initial_screenshot_path)
+    
+    log_parsed_content(parsed_content, 0)
+
+    annotated_screenshot_path = f"annotated_screenshots/iteration_0.png"
+    save_annotated_image(image_content, annotated_screenshot_path)
 
     # print(parsed_content) # DEBUGGING LINE
 
@@ -52,6 +58,13 @@ def agent_loop(bug_report, max_iterations):
         capture_notepadpp_only(screenshot_path)
 
         parsed_content, image_content = get_parsed_image_content(screenshot_path)
+
+        log_parsed_content(parsed_content, i)
+
+        annotated_screenshot_path = f"annotated_screenshots/iteration_{i}.png"
+        save_annotated_image(image_content, annotated_screenshot_path)
+        
+        # print(parsed_content) # DEBUGGING LINE
 
         formatted_observation_prompt = observation_prompt.format(
             bug_report = bug_report
@@ -88,44 +101,12 @@ def agent_loop(bug_report, max_iterations):
         actions = parse_actions(result)
         execute_actions(actions)
 
+        
+        if(detect_crash()):
+            print("✅ Bug is successfully reproduced!")
+            break
+       
 
 bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
 
 agent_loop(bug_report=bug_report, max_iterations=15)
-
-click_green_arrows_prompt = """
-You are reproducing a Notepad++ bug. You are given the current screen as an image separately.
-
-Your task is to identify **green triangle fold markers** in the image (these are the markers used to hide or show folded lines of text).
-
----
-
-INSTRUCTIONS:
-- Carefully observe the screenshot image and its parsed contents.
-- Locate any **green triangle icons** (used for hiding/showing folded lines).
-- Use `moveTo` and `click` actions to interact with them.
-- Respond ONLY with a JSON object containing:
-  - `thought`: your reasoning
-  - `actions`: one or more PyAutoGUI-compatible actions
-- They are between Line number and the actual text in the line. Adjust the bbox accordingly.
-- Just click only one of them.
-
-{parsed_content}
-
-
----
-
-EXAMPLE OUTPUT:
-{{
-  "thought": "I see a green triangle on the left margin, which is a fold marker. I will move to it and click.",
-  "actions": [
-    {{"type": "moveTo", "bbox": [0.015, 0.22, 0.04, 0.25]}},
-    {{"type": "click"}}
-  ]
-}}
-"""
-
-
-
-
-

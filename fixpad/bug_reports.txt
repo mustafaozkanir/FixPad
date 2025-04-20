@@ -13,18 +13,4 @@ Test
 Test
 Test
 
-Place the caret at line 3.
-Go to View → Hide Lines.
-Place the caret at line 2.
-Go to View → Hide Lines.
-Click on the show-lines markers.
-
-You should get this:
-(Visual showing lines 2-4 collapsed.)
-
-Click on the single show-lines marker.
-
-Result:
-Notepad++ crashes."""
-
 bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."

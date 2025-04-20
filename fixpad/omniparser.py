@@ -29,9 +29,10 @@ def get_parsed_image_content(image_path):
     payload = {
             "model": "omniparser2",
             "base64_image": image_data,
-            "box_threshold": 0.5,
-            "iou_threshold": 0.5,
-            "text_threshold": 0.2
+            "box_threshold": 0.05,
+            "iou_threshold": 0.7,
+            "text_threshold": 0.8,
+            "use_paddleocr": True   
     }
 
     response = requests.post(

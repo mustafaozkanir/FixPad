@@ -3,6 +3,7 @@ __pycache__/
 .env 
 # *.log # Consider this later
 screenshots/
+annotated_screenshots/
 venv/
 
 # .env allows us to hide API keys, passwords, or local paths. They are not pushed.
