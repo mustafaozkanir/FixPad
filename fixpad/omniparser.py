@@ -1,4 +1,7 @@
+# Third Party Libraries
 import requests
+
+# Standard Library
 import base64
 import os
 

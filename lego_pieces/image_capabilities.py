@@ -7,7 +7,7 @@ import vertexai
 import base64
 import PIL.Image
 
-from fixpad.omniparser import get_parsed_image_content
+#from fixpad.omniparser import get_parsed_image_content
 
 vertexai.init(project="gen-lang-client-0225271187", location="us-central1")
 
@@ -24,7 +24,7 @@ prompt = f"""
             """
 
 # Load image and convert it to bytes
-image_path = "screenshots/screenshot.png"
+image_path = "../screenshots/step_7.png"
 with open(image_path, "rb") as f:
     image_bytes = f.read()
 
@@ -34,7 +34,7 @@ image_part = Part.from_data(data=image_bytes, mime_type="image/png")
 # Ask Gemini with image + prompt
 response = model.generate_content([
     image_part,
-    "Describe what you see in this screenshot. "
+    "Describe what you see in this screenshot. Do you see any (small green triangles)? Can you click them?"
 ])
 
 print(response.text)

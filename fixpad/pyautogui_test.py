@@ -3,6 +3,7 @@ import pyautogui as py
 def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
     x_min, y_min, x_max, y_max = bbox
     x = int((x_min + x_max) / 2 * screen_width)
+    # x = (x_min + (x_max - x_min) * 0.25 ) * screen_width # To make it click to more left
     y = int((y_min + y_max) / 2 * screen_height)
     return x, y
 

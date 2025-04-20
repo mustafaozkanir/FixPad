@@ -1,0 +1,2 @@
+1. ```json ``` wrapperını her zaman eklemiyor ben sadece nolur nolmaz diye util.py'deki clean_json_response'u kullanıyorum
+2. 

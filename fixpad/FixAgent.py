@@ -1,47 +1,18 @@
 # Third Party Libraries
-from vertexai.preview.generative_models import GenerativeModel, Part, Content
-import pygetwindow as gw
-import pyautogui as py
+from vertexai.preview.generative_models import GenerativeModel, Part
 import vertexai
 
 # Standard Library
-import subprocess
 import json
-import time
 import os
 
 # Custom Project Modules
 from prompts import system_prompt, action_prompt, observation_prompt, reflexion_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
+from env_manager import launch_notepadpp, capture_notepadpp_only
 from action_manager import parse_actions, execute_actions
 from omniparser import get_parsed_image_content
 from util import clean_json_response
 
-
-
-def launch_notepadpp(resized_width=960, resized_height=720):
-    # Launch Notepad++
-    subprocess.Popen(["C:\\Program Files\\Notepad++\\notepad++.exe"])
-    time.sleep(1.5)  # Wait for window to appear
-
-    for window in gw.getWindowsWithTitle("Notepad++"):
-        if window.isMaximized:
-            window.restore()
-        window.resizeTo(resized_width, resized_height)
-        window.moveTo(0, 0)  # Move it to top-left corner
-        break
-
-def capture_notepadpp_only(save_path):
-    for window in gw.getWindowsWithTitle("Notepad++"):
-        if window.visible:
-            x, y, width, height = window.left, window.top, window.width, window.height
-            screenshot = py.screenshot(region=(0, 0, 960, 720))
-            screenshot.save(save_path)
-            return
-
-def take_screenshot(save_path):
-    screenshot = py.screenshot()
-    screenshot.save(save_path)
-    return save_path
 
 class FixAgent:
     def __init__(self, project_id="gen-lang-client-0225271187", location="us-central1", system=None):
@@ -94,7 +65,7 @@ class FixAgent:
     
     def maintain_trajectory(self, result):
         try:
-            parsed = json.loads(clean_json_response(result))
+            parsed = json.loads(clean_json_response(result)) # Just in case LLM wraps the response around ```json ```
             thought = parsed.get("thought", "")
             actions = parsed.get("actions", [])
             if thought and isinstance(actions, list):
@@ -181,6 +152,7 @@ class ObserverAgent():
     
 
 def agent_loop(bug_report, max_iterations):
+
     os.makedirs("screenshots", exist_ok=True)
 
     launch_notepadpp()
