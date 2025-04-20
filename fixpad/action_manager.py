@@ -7,9 +7,10 @@ import pyperclip
 # Global delay to adjust the slight pause between actions
 delay = 0.2
 
-def bbox_to_center_xy(bbox, screen_width=1280, screen_height=720):
+def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
     x_min, y_min, x_max, y_max = bbox
-    x = int((x_min + x_max) / 2 * screen_width)
+    x = (x_min + (x_max - x_min) * 0.25 ) * screen_width
+    # x = int((x_min + x_max) / 2 * screen_width)
     y = int((y_min + y_max) / 2 * screen_height)
     return x, y
 
@@ -31,11 +32,11 @@ def execute_actions(actions):
             pyautogui.click()
 
         elif action["type"] == "paste":
+            print(f"Pasting {action["text"]}")
             text = action["text"]
             pyperclip.copy(text)
             pyperclip.copy(text)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(0.2)
             
         else:
             print(f"⚠️ Unknown action type: {action.get('type')}")

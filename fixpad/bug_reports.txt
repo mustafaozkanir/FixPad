@@ -1,0 +1,28 @@
+bug_report = r"""Steps to Reproduce:
+Paste a└c into an empty Notepad++ tab.
+Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
+Click Count.
+"""
+
+
+bug_report = """Paste the following lines in a new document:
+
+Test
+Test
+Test
+Test
+Test
+
+Place the caret at line 3.
+Go to View → Hide Lines.
+Place the caret at line 2.
+Go to View → Hide Lines.
+Click on the show-lines markers.
+
+You should get this:
+(Visual showing lines 2-4 collapsed.)
+
+Click on the single show-lines marker.
+
+Result:
+Notepad++ crashes."""
