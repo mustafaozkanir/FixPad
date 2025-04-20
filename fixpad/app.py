@@ -3,7 +3,7 @@ import json
 import os
 
 # Custom Project Modules
-from prompts import system_prompt, action_prompt, observation_prompt, reflexion_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
+from prompts import system_prompt, action_prompt, observation_prompt, reflection_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
 from env_manager import launch_notepadpp, capture_notepadpp_only
 from action_manager import parse_actions, execute_actions
 from omniparser import get_parsed_image_content
@@ -62,7 +62,7 @@ def agent_loop(bug_report, max_iterations):
 
         print(f"Observation: {ui_description}")
 
-        formatted_reflexion_prompt = reflexion_prompt.format(
+        formatted_reflection_prompt = reflection_prompt.format(
             available_actions = AVAILABLE_ACTIONS,
             bug_report=bug_report,
             trajectory=json.dumps(action_agent.trajectory, indent=2),
@@ -70,7 +70,7 @@ def agent_loop(bug_report, max_iterations):
             ui_description=ui_description
         )
 
-        reflection_output = reflection_agent(formatted_reflexion_prompt, screenshot_path)
+        reflection_output = reflection_agent(formatted_reflection_prompt, screenshot_path)
         print("Reflection:\n", reflection_output)
 
         formatted_action_prompt = action_prompt.format(
@@ -89,11 +89,7 @@ def agent_loop(bug_report, max_iterations):
         execute_actions(actions)
 
 
-bug_report = r"""Steps to Reproduce:
-Paste a└c into an empty Notepad++ tab.
-Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
-Click Count.
-"""
+bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
 
 agent_loop(bug_report=bug_report, max_iterations=15)
 
