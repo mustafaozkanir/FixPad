@@ -1,5 +1,19 @@
 # Util class that contains auxiliary methods
 
+# Third Party Libraries
+import vertexai
+
+# Standard Library
+import os
+
+def init_vertex_ai():
+    # Get project id and location from .env
+    project_id = os.getenv("PROJECT_ID")
+    location = os.getenv("LOCATION")
+
+    # Initialize Vertex AI globally once
+    vertexai.init(project=project_id, location=location)
+
 """
     Removes the first and last lines in the LLM output,
     if it is wrapped with wrappers like ``` to ease parsing.

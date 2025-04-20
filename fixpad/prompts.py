@@ -1,30 +1,3 @@
-AVAILABLE_ACTIONS = """
-1. moveTo:
-  Moves the mouse to the specified screen coordinate.
-  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
-
-2. click:
-  Clicks the mouse at the current location.
-  Format: {{"type": "click"}}
-
-3. paste:
-  Pastes the given text at the current cursor location. Use this when need to paste lines.
-  Format: {{"type": "paste", "text": "your text here"}}
-
-You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse
-
-"""
-
-EXAMPLE_RESPONSE = """
-{
-  "thought": "The first step in Steps to Reproduce is Edit. So, I need to open the Edit menu, which will possibly include second step, i.e., Paste Special",
-  "actions": [
-    {"type": "moveTo", "bbox": [0.16562500596046448, 0.4402777850627899, 0.22812500596046448, 0.45972222089767456]},
-    {"type": "click"}
-  ]
-}
-"""
-
 system_prompt = """You are a Notepad++ bug reproduction agent.
 
 You run in a loop of Thought, Action, Observation.
@@ -78,7 +51,7 @@ Your task is to decide what to do next based on:
 
 ---
 
-### BUG REPORT
+### BUG REPORT (Steps to Reproduce)
 {bug_report}
 
 ---
@@ -230,3 +203,29 @@ Example:
 "The editor shows 5 lines, all containing the word 'Test'. Line 5 appears to be selected, as indicated by the highlight. There are two green triangles to show the hidden lines next to line 1 and 4. No menu is currently open."
 """
 
+AVAILABLE_ACTIONS = """
+1. moveTo:
+  Moves the mouse to the specified screen coordinate.
+  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
+
+2. click:
+  Clicks the mouse at the current location.
+  Format: {{"type": "click"}}
+
+3. paste:
+  Pastes the given text at the current cursor location. Use this when need to paste lines.
+  Format: {{"type": "paste", "text": "your text here"}}
+
+You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse
+
+"""
+
+EXAMPLE_RESPONSE = """
+{
+  "thought": "The first step in Steps to Reproduce is Edit. So, I need to open the Edit menu, which will possibly include second step, i.e., Paste Special",
+  "actions": [
+    {"type": "moveTo", "bbox": [0.16562500596046448, 0.4402777850627899, 0.22812500596046448, 0.45972222089767456]},
+    {"type": "click"}
+  ]
+}
+"""

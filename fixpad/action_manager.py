@@ -26,6 +26,7 @@ def execute_actions(actions):
     Args:
         actions (list): A list of actions, each a dict with type and parameters.
     """
+    print("Action:")
     for action in actions:
         if action["type"] == "moveTo":
             x, y = bbox_to_center_xy(action["bbox"])

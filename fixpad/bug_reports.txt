@@ -26,3 +26,5 @@ Click on the single show-lines marker.
 
 Result:
 Notepad++ crashes."""
+
+bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
