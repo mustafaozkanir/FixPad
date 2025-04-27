@@ -1,16 +1,79 @@
+1. 
+bug_report="""
+Steps To Reproduce
+Select at least 28 lines in Column Mode or multi-select at least 28 positions
+Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
+Press "OK"
+"""
+(Aldık ama sıkıntılı her zaman alamıyoruz çok yaklaşıyor sadece 28 tane seçse ve omniparser file ve editi birleştirmese alacaz)
+
+
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+
+
+
+
+bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
+(Alıyoruz)
+
 bug_report = r"""Steps to Reproduce:
 Paste a└c into an empty Notepad++ tab.
 Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
 Click Count.
 """
+(Alıyoruz)
 
 
-bug_report = """Paste the following lines in a new document:
+2. bug_report="""
+Steps To Reproduce
+Copy -1 to the clipboard
+Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
+Press "OK"
+"""
+(Alıyoruz)
+
+3. bug_report="""
+Steps To Reproduce
+Open empty document (e.g. New 1)
+Open Find dialog (ctrl+f)
+Press "Find All in Current Document" button -> Search results with 0 hits
+Open menu Search->Next Search Result
+"""
+(Alıyoruz)
+
+
+4. 
+
+5. bug_report = """STR:
+Paste the following lines in a new document.
 
 Test
 Test
 Test
 Test
 Test
+Place the caret at line 3.
+View -> Hide Lines.
+Place the caret at line 2.
+View -> Hide Lines.
+Click on the show-lines markers.
+Click on the single show-lines marker.
 
-bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
+Result:
+NPP crashes.
+"""
+(Üçgenlere tıklayabilsek alacağız)
+
+6. bug_report="""
+Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (") and close the Preferences window.
+Create new document (Ctrl + N), type something and press Enter to create a new line
+While holding the Left Control key, double click your left mouse button on the empty line
+Program should now close itself
+"""

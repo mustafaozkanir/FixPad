@@ -87,13 +87,13 @@ def agent_loop(bug_report, max_iterations):
         print("Reflection:\n", reflection_output)
 
         formatted_action_prompt = action_prompt.format(
-            bug_report = bug_report,
-            trajectory=json.dumps(action_agent.trajectory, indent=2),
-            reflection=reflection_output,
             parsed_screenshot=json.dumps(parsed_content, indent=2),
             ui_description = ui_description,
-            available_actions = AVAILABLE_ACTIONS,
-            example_response = EXAMPLE_RESPONSE
+            trajectory=json.dumps(action_agent.trajectory, indent=2),
+            bug_report = bug_report,
+            reflection=reflection_output,
+            example_response = EXAMPLE_RESPONSE,
+            available_actions = AVAILABLE_ACTIONS
         )        
 
         result = action_agent(formatted_action_prompt, screenshot_path)
@@ -105,8 +105,12 @@ def agent_loop(bug_report, max_iterations):
         if(detect_crash()):
             print("✅ Bug is successfully reproduced!")
             break
-       
 
-bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
+bug_report="""
+Steps To Reproduce
+Select at least 28 lines in Column Mode or multi-select at least 28 positions
+Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
+Press "OK"
+"""
 
 agent_loop(bug_report=bug_report, max_iterations=15)

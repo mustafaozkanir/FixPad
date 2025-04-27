@@ -71,11 +71,22 @@ def detect_crash_popup():
     return False
 
 """
+Detects if the application window no longer exists (fully closed)
+"""
+def detect_window_closed(window_title="Notepad++"):
+    windows = gw.getWindowsWithTitle(window_title)
+    return len(windows) == 0
 
+"""
+Full crash detection combining all methods:
+- Window Hung
+- Crash Popup
+- Window Closed
 """
 def detect_crash():
     time.sleep(5.0) 
     is_crashed = detect_crash_popup()
     is_hung = detect_window_hung()
+    is_closed = detect_window_closed()
     
-    return is_hung or is_crashed
+    return is_hung or is_crashed or is_closed

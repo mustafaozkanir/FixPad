@@ -102,7 +102,7 @@ Remember:
 - Pay attention to feedback from the Reflection on the last step.
 - Do not make any assumption! Use provided inputs to observe your environment correctly!
 - Make sure that your next action is always aligned with the original **bug report**.
-- When pasting into an input field, make sure to click **inside the actual input box**, not on the label text. Note that in the parsed UI, labels are detected, but the input box itself is **always positioned to the right** of the label. Therefore, when targeting an **input** field, adjust your click location slightly to the right of the detected text bounding box to ensure you click inside the editable area.
+
 ---
 
 ### RESPONSE FORMAT
@@ -168,7 +168,7 @@ Then write a reflection on:
 - was the action compatible with the thought
 
 Remember to not include any suggestion about the next step in your reflection.
-Do not make any **assumption** about the current UI state. Reflect on what you see in the screen.
+Do not make any **assumption** about the current UI state. Reflect on primarily **Natural Language Description** and what you see in the screen.
 
 ---
 
@@ -188,6 +188,13 @@ Respond in **strict JSON** like this:
 {{
   "evaluation": "FAILURE",
   "reflection": "The last action attempted to place cursor on line 3. However, the UI description shows that cursor is placed on line 5, meaning the action did not achieve the intended goal and needs to be corrected."
+}}
+
+**Example 3:**
+
+{{
+  "evaluation": "FAILURE",
+  "reflection": "The last action attempted to open the View menu. However, the current UI state shows that the Edit menu is now open, meaning the action did not achieve the intended goal and needs to be corrected."
 }}
 """
 
@@ -230,7 +237,9 @@ Example:
 AVAILABLE_ACTIONS = """
 1. moveTo:
   Moves the mouse to the specified screen coordinate.
-  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
+  You must indicate if the target is an input field by setting "input_field": true. 
+  This will allow the system to slightly adjust the click position to better click inside the input box rather than on the label.
+  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max], , "input_field": False}}
 
 2. click:
   Clicks the mouse at the current location.
@@ -240,16 +249,53 @@ AVAILABLE_ACTIONS = """
   Pastes the given text at the current cursor location. Use this when need to paste lines.
   Format: {{"type": "paste", "text": "your text here"}}
 
-You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse
+4. keyDown:
+   Presses and holds a specific keyboard key.
+   Format: {"type": "keyDown", "key": "alt"}
+
+5. keyUp:
+   Releases a previously held keyboard key.
+   Format: {"type": "keyUp", "key": "ctrl"}
+
+6. dragSelect:
+   Simulates a click-and-drag operation from a start position to an end position.
+   Format: {"type": "dragSelect", "start_bbox": [x_min, y_min, x_max, y_max], "end_bbox": [x_min, y_min, x_max, y_max]}
+
+REMEMBER THESE WHEN INTERACTING WITH UI ELEMENTS:
+- You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse.
+- To perform a multi-line selection:
+  - Press and hold the "Alt" key using a `keyDown` action.
+  - Use a `dragSelect` action to click at the starting position (e.g., Line 1) and drag down to the desired end position (e.g., Line 5). Note that you must click to the **end of the text** for proper selection.
+  - After completing the drag selection, release the "Alt" key using a `keyUp` action.
 
 """
 
 EXAMPLE_RESPONSE = """
+**Example 1**
 {
   "thought": "The first step in Steps to Reproduce is Edit. So, I need to open the Edit menu, which will possibly include second step, i.e., Paste Special",
   "actions": [
-    {"type": "moveTo", "bbox": [0.16562500596046448, 0.4402777850627899, 0.22812500596046448, 0.45972222089767456]},
+    {"type": "moveTo", "bbox": [0.16562500596046448, 0.4402777850627899, 0.22812500596046448, 0.45972222089767456], "input_field": False},
     {"type": "click"}
   ]
 }
+**Example 2**
+{
+  "thought": "I need to input a number into the 'Repeat' field, so I will move to the detected 'Repeat' label. Since, I must paste something in there, I must indicate that input_field as True.",
+  "actions": [
+    {
+      "type": "moveTo",
+      "bbox": [0.435, 0.32, 0.50, 0.34],
+      "input_field": true
+    },
+    {
+      "type": "click"
+    },
+    {
+      "type": "paste",
+      "text": "56"
+    }
+  ]
+}
+
 """

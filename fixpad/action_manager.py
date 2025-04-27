@@ -28,23 +28,48 @@ def execute_actions(actions):
     """
     print("Action:")
     for action in actions:
-        if action["type"] == "moveTo":
+        action_type = action.get("type")
+
+        if action_type == "moveTo":
             x, y = bbox_to_center_xy(action["bbox"])
-            print(f"➡️ Moving to ({x}, {y})")
+            if action.get("input_field", True):
+                x = x + 60
+                print(f"➡️ Moving to ({x}, {y}) with input field adjustment")
+            else:
+                print(f"➡️ Moving to ({x}, {y})")
             pyautogui.moveTo(x, y, duration=0.3)
 
-        elif action["type"] == "click":
+        elif action_type == "click":
             print("🖱️ Clicking")
             pyautogui.click()
 
-        elif action["type"] == "paste":
+        elif action_type == "paste":
             print(f"📋 Pasting {action["text"]}")
             text = action["text"]
             pyperclip.copy(text)
             pyautogui.hotkey("ctrl", "v")
-            
+        
+        elif action_type == "keyDown":
+            key = action["key"]
+            print(f"🔽 Holding down key: {key}")
+            pyautogui.keyDown(key)
+        
+        elif action_type == "keyUp":
+            key = action["key"]
+            print(f"🔼 Releasing key: {key}")
+            pyautogui.keyUp(key)
+
+        elif action_type == "dragSelect":
+            start_x, start_y = bbox_to_center_xy(action["start_bbox"])
+            end_x, end_y = bbox_to_center_xy(action["end_bbox"])
+            print(f"🖱️ Dragging from ({start_x}, {start_y}) to ({end_x}, {end_y})")
+            pyautogui.moveTo(start_x, start_y)
+            pyautogui.mouseDown()
+            pyautogui.moveTo(end_x, end_y, duration=0.5)  # Smooth drag
+            pyautogui.mouseUp()
+
         else:
-            print(f"⚠️ Unknown action type: {action.get('type')}")
+            print(f"⚠️ Unknown action type: {action_type}")
         
         time.sleep(delay)  # Slight pause between actions
 

@@ -31,8 +31,8 @@ def get_parsed_image_content(image_path):
             "base64_image": image_data,
             "box_threshold": 0.05,
             "iou_threshold": 0.7,
-            "text_threshold": 0.8,
-            "use_paddleocr": True   
+            "text_threshold": 0.8#,
+            # "use_paddleocr": True   
     }
 
     response = requests.post(
@@ -40,7 +40,9 @@ def get_parsed_image_content(image_path):
         json=payload,
         headers=headers
     )
-
+    # print(response.json())
+    #print("DEBUG: Status code:", response.status_code)
+    # print("DEBUG: Response text:", response.text[:1000])
     parsed_data = response.json()
     """
         Returns only the detected elements.
