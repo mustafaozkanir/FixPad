@@ -5,53 +5,18 @@ Select at least 28 lines in Column Mode or multi-select at least 28 positions
 Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
 Press "OK"
 """
-(Aldık ama sıkıntılı her zaman alamıyoruz çok yaklaşıyor sadece 28 tane seçse ve omniparser file ve editi birleştirmese alacaz)
-
+(Sıkıntılı)
 
 2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-
-
-
-
-bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
-(Alıyoruz)
-
 bug_report = r"""Steps to Reproduce:
 Paste a└c into an empty Notepad++ tab.
 Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
 Click Count.
 """
-(Alıyoruz)
+(Alıyorduk ama input_field adjustment gidince sıkıntılı oldu)
 
-
-2. bug_report="""
-Steps To Reproduce
-Copy -1 to the clipboard
-Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
-Press "OK"
-"""
-(Alıyoruz)
-
-3. bug_report="""
-Steps To Reproduce
-Open empty document (e.g. New 1)
-Open Find dialog (ctrl+f)
-Press "Find All in Current Document" button -> Search results with 0 hits
-Open menu Search->Next Search Result
-"""
-(Alıyoruz)
-
-
-4. 
-
-5. bug_report = """STR:
+3. 
+bug_report = """STR:
 Paste the following lines in a new document.
 
 Test
@@ -71,9 +36,102 @@ NPP crashes.
 """
 (Üçgenlere tıklayabilsek alacağız)
 
-6. bug_report="""
+4.
+
+bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
+
+(Genelde alıyoruz ama Omniparser'ın iyi niyetine kaldık. Binary Content Copy derse sıkıntı oluyor)
+
+5.
+bug_report ="""
+Steps to Reproduce the Issue
+Open the Style Configurator in Settings > Style Configurator
+Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian
+Save the theme
+Reopen the Style Configurator
+Change the theme from Obsidian to Default (stylers.xml)
+Press Cancel
+Reopen the Style Configurator again
+Expected Behavior
+The languages should reset back to Obsidian's.
+
+Actual Behavior
+The languages remained from Default (stylers.xml).
+When selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.
+"""
+
+(Her şeyi yapıyor sonuna kadar geliyor ama Swift listede aşağıda kaldığı için onu seçmiyor! )
+
+6.
+bug_report="""
+Steps To Reproduce
+1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.
+
+2/ Extract it.
+
+3/ Launch Notepad++
+
+4/ Write the following lines:
+
+{
+	// sample
+	// sample
+}
+{
+	// sample
+	// sample
+}
+5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.
+
+6/ Now, you should only see this:
+
+{
+	// sample
+	// sample
+}
+}
+With the fold markers on line 4 (>) and line 8 (<).
+
+
+7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.
+
+
+8/ Notepad++ freezes.
+
+
+Current Behavior
+Notepad++ Freeze.
+"""
+
+(Kafası direk multi-selecte gitti ama doğru seçmeyi gösterirsek yapabilir bir de hotkey kullandırmamız lazım galiba)
+
+7.
+bug_report="""
+Steps To Reproduce
+Open empty document (e.g. New 1)
+Open Find dialog (ctrl+f)
+Press "Find All in Current Document" button -> Search results with 0 hits
+Open menu Search->Next Search Result
+"""
+
+(Alıyoruz: 8.6.8'de)
+
+8.
+bug_report="""
 Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (") and close the Preferences window.
 Create new document (Ctrl + N), type something and press Enter to create a new line
 While holding the Left Control key, double click your left mouse button on the empty line
 Program should now close itself
 """
+
+(Alamıyoruz: Delimiter inputuna tıklayamıyor 8.4.6'da)
+
+9.
+bug_report="""
+Steps To Reproduce
+Copy -1 to the clipboard
+Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
+Press "OK"
+"""
+(Alamıyoruz: Çünkü Inputlara Tıklayamıyor)
+

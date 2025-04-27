@@ -237,13 +237,13 @@ Example:
 AVAILABLE_ACTIONS = """
 1. moveTo:
   Moves the mouse to the specified screen coordinate.
-  You must indicate if the target is an input field by setting "input_field": true. 
-  This will allow the system to slightly adjust the click position to better click inside the input box rather than on the label.
-  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max], , "input_field": False}}
+  Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
 
 2. click:
   Clicks the mouse at the current location.
-  Format: {{"type": "click"}}
+  You must specify a 'label' when you are trying to click on a specific UI element (like 'Edit', 'Count', etc.). Use labels directly from the steps to reproduce **NOT FROM THE CONTENT FIELD OF PARSED_CONTENT**.
+  Format: 
+  {{"type": "click", "label": "Find what"}}
 
 3. paste:
   Pastes the given text at the current cursor location. Use this when need to paste lines.
@@ -262,7 +262,7 @@ AVAILABLE_ACTIONS = """
    Format: {"type": "dragSelect", "start_bbox": [x_min, y_min, x_max, y_max], "end_bbox": [x_min, y_min, x_max, y_max]}
 
 REMEMBER THESE WHEN INTERACTING WITH UI ELEMENTS:
-- You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons. Use parsed_content to decide where to move the mouse.
+- You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons.
 - To perform a multi-line selection:
   - Press and hold the "Alt" key using a `keyDown` action.
   - Use a `dragSelect` action to click at the starting position (e.g., Line 1) and drag down to the desired end position (e.g., Line 5). Note that you must click to the **end of the text** for proper selection.
@@ -275,21 +275,21 @@ EXAMPLE_RESPONSE = """
 {
   "thought": "The first step in Steps to Reproduce is Edit. So, I need to open the Edit menu, which will possibly include second step, i.e., Paste Special",
   "actions": [
-    {"type": "moveTo", "bbox": [0.16562500596046448, 0.4402777850627899, 0.22812500596046448, 0.45972222089767456], "input_field": False},
-    {"type": "click"}
+    {"type": "moveTo", "bbox": [0.16562500596046448, 0.4402777850627899, 0.22812500596046448, 0.45972222089767456]},
+    {"type": "click", "label": "Edit"}
   ]
 }
 **Example 2**
 {
-  "thought": "I need to input a number into the 'Repeat' field, so I will move to the detected 'Repeat' label. Since, I must paste something in there, I must indicate that input_field as True.",
+  "thought": "I need to input a number into the 'Repeat' field, so I will move to the detected 'Repeat' label.",
   "actions": [
     {
       "type": "moveTo",
-      "bbox": [0.435, 0.32, 0.50, 0.34],
-      "input_field": true
+      "bbox": [0.435, 0.32, 0.50, 0.34]
     },
     {
-      "type": "click"
+      "type": "click",
+      "label": "Repeat"
     },
     {
       "type": "paste",

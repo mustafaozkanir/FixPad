@@ -1,10 +1,12 @@
 # Third Party Libraries
+from pywinauto import Application
 import pyperclip
 import pyautogui
 
 # Standard Library
 import time
 import json
+import re
 
 # Custom Project Modules
 from util import clean_json_response
@@ -27,21 +29,82 @@ def execute_actions(actions):
         actions (list): A list of actions, each a dict with type and parameters.
     """
     print("Action:")
+
     for action in actions:
         action_type = action.get("type")
 
         if action_type == "moveTo":
             x, y = bbox_to_center_xy(action["bbox"])
+            """
             if action.get("input_field", True):
                 x = x + 60
                 print(f"➡️ Moving to ({x}, {y}) with input field adjustment")
             else:
-                print(f"➡️ Moving to ({x}, {y})")
+            """
+            print(f"➡️ Moving to ({x}, {y})")
             pyautogui.moveTo(x, y, duration=0.3)
 
         elif action_type == "click":
-            print("🖱️ Clicking")
-            pyautogui.click()
+            # Connect to Notepad++
+            try:
+                app = Application(backend="uia").connect(title_re=".*Notepad.*")
+                window = app.window(title_re=".*Notepad.*")
+            except Exception as e:
+                print(f"❌ Could not connect to Notepad++ window: {e}")
+                window = None
+
+            label = action.get("label", None)
+
+            print(f"🖱️ Trying to click '{label}' via Pywinauto first...")
+
+            found = False
+
+            if label and window:
+                try:
+                    # 1. Get all descendants
+                    all_controls = window.descendants()
+
+                    # 2. Filter manually based on regex matching
+                    matches = [ctrl for ctrl in all_controls if ctrl.window_text() and re.search(label, ctrl.window_text(), re.IGNORECASE)]
+                    print(f"🔎 Found {len(matches)} matching controls for label '{label}'")
+
+                    if matches:
+                        # Step 2: Prioritize controls
+                        edit_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Edit"]
+                        radio_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "RadioButton"]
+                        button_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Button"]
+                        other_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() not in ["Edit", "RadioButton", "Button"]]
+
+                        # Try in order
+                        chosen_control = None
+                        if edit_controls:
+                            chosen_control = edit_controls[0]
+                            print("✅ Prioritized Edit control.")
+                        elif radio_controls:
+                            chosen_control = radio_controls[0]
+                            print("✅ Prioritized RadioButton control.")
+                        elif button_controls:
+                            chosen_control = button_controls[0]
+                            print("✅ Prioritized Button control.")
+                        elif other_controls:
+                            chosen_control = other_controls[0]
+                            print("✅ Using other control.")
+
+                        if chosen_control:
+                            rect = chosen_control.rectangle()
+                            center_x = (rect.left + rect.right) // 2
+                            center_y = (rect.top + rect.bottom) // 2
+                            pyautogui.moveTo(center_x, center_y, duration=0.3)
+                            pyautogui.doubleClick()
+                            print(f"✅ Double-clicked on '{label}' ({chosen_control.friendly_class_name()}) successfully.")
+                            found = True
+
+                except Exception as e:
+                    print(f"⚠️ Error during control search: {e}")
+
+            if not found:
+                print(f"⏩ No matching control found. Falling back to clicking at current mouse position.")
+                pyautogui.click()
 
         elif action_type == "paste":
             print(f"📋 Pasting {action["text"]}")

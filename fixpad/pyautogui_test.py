@@ -31,7 +31,10 @@ def detect_window_closed(window_title="Notepad++"):
     windows = gw.getWindowsWithTitle(window_title)
     return len(windows) == 0
 
-print(detect_window_closed())
+time.sleep(3)
+py.click((202+319)/2, (485+501)/2)
+
+# print(detect_window_closed())
 
 
 

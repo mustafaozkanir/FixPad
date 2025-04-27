@@ -1,14 +1,13 @@
 # Standard Library
-import json
-import os
+import json, time, os
 
 # Custom Project Modules
 from prompts import system_prompt, action_prompt, observation_prompt, reflection_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
 from env_manager import launch_notepadpp, capture_notepadpp_only, detect_crash, save_annotated_image
+from util import clean_json_response, init_vertex_ai, log_parsed_content, log_messages
+from agents import ActionAgent, ReflectionAgent, ObserverAgent
 from action_manager import parse_actions, execute_actions
 from omniparser import get_parsed_image_content
-from util import clean_json_response, init_vertex_ai, log_parsed_content
-from agents import ActionAgent, ReflectionAgent, ObserverAgent
 
 init_vertex_ai()
 
@@ -47,6 +46,7 @@ def agent_loop(bug_report, max_iterations):
     print(f"\n--- Iteration 0: Invoke the Agent via System Prompt ---")
     result = action_agent(message="", screenshot_path=initial_screenshot_path)
     print(result)
+    log_messages(result, "Action Agent", 0)
     actions = parse_actions(result)
     execute_actions(actions)
 
@@ -74,6 +74,7 @@ def agent_loop(bug_report, max_iterations):
         ui_description = observer_agent(formatted_observation_prompt, screenshot_path)
 
         print(f"Observation: {ui_description}")
+        log_messages(result, "Observation Agent", i)
 
         formatted_reflection_prompt = reflection_prompt.format(
             available_actions = AVAILABLE_ACTIONS,
@@ -85,6 +86,7 @@ def agent_loop(bug_report, max_iterations):
 
         reflection_output = reflection_agent(formatted_reflection_prompt, screenshot_path)
         print("Reflection:\n", reflection_output)
+        log_messages(result, "Reflection Agent", -1)
 
         formatted_action_prompt = action_prompt.format(
             parsed_screenshot=json.dumps(parsed_content, indent=2),
@@ -98,19 +100,22 @@ def agent_loop(bug_report, max_iterations):
 
         result = action_agent(formatted_action_prompt, screenshot_path)
         print(result)
+        log_messages(result, "Action Agent", -1)
         actions = parse_actions(result)
         execute_actions(actions)
 
-        
+        time.sleep(2) # To not crash Gemini Server
+        """
         if(detect_crash()):
             print("✅ Bug is successfully reproduced!")
             break
+        """
 
 bug_report="""
 Steps To Reproduce
-Select at least 28 lines in Column Mode or multi-select at least 28 positions
-Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
+Copy -1 to the clipboard
+Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
 Press "OK"
 """
 
-agent_loop(bug_report=bug_report, max_iterations=15)
+agent_loop(bug_report=bug_report, max_iterations=30)

@@ -31,8 +31,17 @@ def clean_json_response(response_text):
     return "\n".join(lines)
 
 def log_parsed_content(parsed_content, iteration, file_path="parsed_content_log.txt"):
-    with open(file_path, "a", encoding="utf-8") as f:
+    mode = "w" if iteration == 0 else "a"  # "w" to overwrite if reset=True
+    with open(file_path, mode, encoding="utf-8") as f:
         f.write(f"\n------ Iteration {iteration} ------\n")
         f.write(json.dumps(parsed_content, indent=2))
         f.write("\n")
 
+def log_messages(message, source, iteration, file_path="messages.txt"):
+    mode = "w" if iteration == 0 else "a"  # "w" to overwrite if reset=True
+    with open(file_path, mode, encoding="utf-8") as f:
+        if(iteration >= 0):
+            f.write(f"\n------Iteration {iteration} ------\n")
+        f.write(f"\n{source}: \n")
+        f.write(message)
+        f.write("\n")
