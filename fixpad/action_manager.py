@@ -21,9 +21,6 @@ def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
     y = int((y_min + y_max) / 2 * screen_height)
     return x, y
 
-
-import re
-
 def find_best_matching_control(window, label):
     """
     Finds the best matching control based on:
@@ -76,6 +73,14 @@ def prioritize_control_types(matches):
 
     return None
 
+def line_to_position(line_number):
+    """Map a line number to (x, y) screen coordinate for your editor."""
+    x = 100
+    y_start = 111
+    line_height = 17
+    y = y_start + (line_number - 1) * line_height
+    return (x, y)
+
 
 def execute_actions(actions):
     """
@@ -106,14 +111,12 @@ def execute_actions(actions):
                 app = Application(backend="uia").connect(title_re=".*Notepad.*")
                 window = app.window(title_re=".*Notepad.*")
             except Exception as e:
-                print(f"❌ Could not connect to Notepad++ window: {e}")
+                print(f"❌  Could not connect to Notepad++ window: {e}")
                 window = None
 
             label = action.get("label", None)
 
-            print(f"🖱️ Trying to click '{label}' via Pywinauto first...")
-
-            found = False
+            print(f"🖱️  Trying to click '{label}' via Pywinauto first...")
 
             control = find_best_matching_control(window, label)
             if control:
@@ -122,36 +125,58 @@ def execute_actions(actions):
                 center_y = (rect.top + rect.bottom) // 2
                 pyautogui.moveTo(center_x, center_y, duration=0.3)
                 pyautogui.doubleClick()
-                print(f"✅ Double-clicked on '{label}' ({control.friendly_class_name()}) successfully.")
-                found = True
+                print(f"✅  Double-clicked on '{label}' ({control.friendly_class_name()}) successfully.")
+
             else:
                 print(f"⏩ No matching control found. Clicking at current mouse position.")
                 pyautogui.click()
 
         elif action_type == "paste":
-            print(f"📋 Pasting {action["text"]}")
+            print(f"📋  Pasting {action["text"]}")
             text = action["text"]
             pyperclip.copy(text)
             pyautogui.hotkey("ctrl", "v")
-        
-        elif action_type == "keyDown":
-            key = action["key"]
-            print(f"🔽 Holding down key: {key}")
-            pyautogui.keyDown(key)
-        
-        elif action_type == "keyUp":
-            key = action["key"]
-            print(f"🔼 Releasing key: {key}")
-            pyautogui.keyUp(key)
 
-        elif action_type == "dragSelect":
-            start_x, start_y = bbox_to_center_xy(action["start_bbox"])
-            end_x, end_y = bbox_to_center_xy(action["end_bbox"])
-            print(f"🖱️ Dragging from ({start_x}, {start_y}) to ({end_x}, {end_y})")
-            pyautogui.moveTo(start_x, start_y)
+        elif action_type == "hotkey":
+            keys = action.get("keys", [])
+            print(f"🎹  Pressing hotkey: {keys}")
+            pyautogui.hotkey(*keys)
+        
+        elif action_type == "highlight":
+            start_line = action.get("start_line")
+            end_line = action.get("end_line")
+            print(f"🖱️  Highlighting lines {start_line} to {end_line}")
+
+            start_x, start_y = line_to_position(start_line)
+            end_x, end_y = line_to_position(end_line)
+
+            # Click at start
+            pyautogui.moveTo(end_x, end_y, duration=0.5)
+            pyautogui.click()
+            time.sleep(0.3)
+
+            # Shift+Click at end
+            pyautogui.keyDown('shift')
+            pyautogui.moveTo(start_x, start_y, duration=0.5)
+            pyautogui.click()
+            pyautogui.keyUp('shift')
+
+        elif action_type == "multi_select":
+            start_line = action.get("start_line")
+            end_line = action.get("end_line")
+            print(f"🖱️  Multi-selecting (Column mode) lines {start_line} to {end_line}")
+
+            start_x, start_y = line_to_position(start_line)
+            end_x, end_y = line_to_position(end_line)
+
+            # Hold Alt key for column mode
+            pyautogui.keyDown('alt')
+            pyautogui.moveTo(start_x, start_y, duration=0.5)
             pyautogui.mouseDown()
-            pyautogui.moveTo(end_x, end_y, duration=0.5)  # Smooth drag
+            pyautogui.moveTo(end_x, end_y, duration=0.5)
             pyautogui.mouseUp()
+            pyautogui.keyUp('alt')
+
 
         else:
             print(f"⚠️ Unknown action type: {action_type}")

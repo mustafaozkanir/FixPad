@@ -1,5 +1,5 @@
 import pygetwindow as gw
-import pyautogui as py
+import pyautogui as py, pyautogui
 import time
 
 def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
@@ -9,20 +9,33 @@ def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
     y = int((y_min + y_max) / 2 * screen_height)
     return x, y
 
+def line_to_position(line_number):
+    """Map a line number to (x, y) screen coordinate for your editor."""
+    x = 100
+    y_start = 111
+    line_height = 17
+    y = y_start + (line_number - 1) * line_height
+    return (x, y)
 
-def execute_drag_select(start_bbox, end_bbox):
-    start_x, start_y = bbox_to_center_xy(start_bbox)
-    end_x, end_y = bbox_to_center_xy(end_bbox)
+def execute_highlight(start_bbox, end_bbox):
+        start_line = action.get("start_line")
+        end_line = action.get("end_line")
+        print(f"🖱️ Highlighting lines {start_line} to {end_line}")
 
-    
-    time.sleep(0.2)
-    py.moveTo(start_x, start_y)
-    py.keyDown("alt")
-    py.mouseDown()
-    py.moveTo(end_x, end_y, duration=0.2)  # Smooth drag
-    py.mouseUp()
-    time.sleep(0.2)
-    py.keyUp("alt")
+        start_x, start_y = line_to_position(start_line)
+        end_x, end_y = line_to_position(end_line)
+
+        # Click at start
+        pyautogui.moveTo(start_x, start_y, duration=0.3)
+        pyautogui.click()
+        time.sleep(0.3)
+
+        # Shift+Click at end
+        pyautogui.keyDown('shift')
+        pyautogui.moveTo(end_x, end_y, duration=0.3)
+        pyautogui.click()
+        pyautogui.keyUp('shift')
+        
 
 """
 Detects if the application window no longer exists (fully closed)
@@ -31,10 +44,25 @@ def detect_window_closed(window_title="Notepad++"):
     windows = gw.getWindowsWithTitle(window_title)
     return len(windows) == 0
 
-time.sleep(3)
-py.click((202+319)/2, (485+501)/2)
+time.sleep(2)
+# pyautogui.click(100,111)
 
-# print(detect_window_closed())
+
+start_line = 1
+end_line = 28
+print(f"🖱️ Multi-selecting (Column mode) lines {start_line} to {end_line}")
+
+start_x, start_y = line_to_position(start_line)
+end_x, end_y = line_to_position(end_line)
+
+# Hold Alt key for column mode
+pyautogui.keyDown('alt')
+pyautogui.moveTo(start_x, start_y, duration=0.5)
+print(pyautogui.position())
+pyautogui.mouseDown()
+pyautogui.moveTo(end_x, end_y, duration=0.5)
+pyautogui.mouseUp()
+pyautogui.keyUp('alt')
 
 
 

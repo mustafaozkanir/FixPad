@@ -104,51 +104,16 @@ def agent_loop(bug_report, max_iterations):
         actions = parse_actions(result)
         execute_actions(actions)
 
-        time.sleep(3) # To not crash Gemini Server
-        """
+        #time.sleep(3) # To not crash Gemini Server
+        
         if(detect_crash()):
             print("✅ Bug is successfully reproduced!")
             break
-        """
-
-bug_report="""
-Steps To Reproduce
-1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.
-
-2/ Extract it.
-
-3/ Launch Notepad++
-
-4/ Write the following lines:
-
-{
-	// sample
-	// sample
-}
-{
-	// sample
-	// sample
-}
-5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.
-
-6/ Now, you should only see this:
-
-{
-	// sample
-	// sample
-}
-}
-With the fold markers on line 4 (>) and line 8 (<).
-
-
-7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.
-
-
-8/ Notepad++ freezes.
-
-
-Current Behavior
-Notepad++ Freeze.
+        
+bug_report = r"""Steps to Reproduce:
+Paste a└c into an empty Notepad++ tab.
+Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
+Click Count.
 """
 
 agent_loop(bug_report=bug_report, max_iterations=30)

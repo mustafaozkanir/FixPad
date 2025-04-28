@@ -5,7 +5,7 @@ Select at least 28 lines in Column Mode or multi-select at least 28 positions
 Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
 Press "OK"
 """
-(Sıkıntılı)
+(Alabiliyoruz ama arada halüsinasyonu abartıyor: 8.6.7)
 
 2.
 bug_report = r"""Steps to Reproduce:
@@ -103,7 +103,7 @@ Current Behavior
 Notepad++ Freeze.
 """
 
-(Bazen alıyoruz ama sağlam değil)
+(ALDIK: 8.6.9)
 
 7.
 bug_report="""

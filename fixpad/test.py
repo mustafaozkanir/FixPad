@@ -1,13 +1,20 @@
-from pywinauto import Application
-
+from pywinauto import Application, Desktop
+"""
 # Connect to Notepad++
 app = Application(backend="uia").connect(title_re=".*Notepad.*")
-
-# Access the main Notepad++ window
 window = app.window(title_re=".*Notepad.*")
 
-# Access the Preferences child window
-prefs_window = window.child_window(title_re="Find", control_type="Window")
+# Find Scintilla editor window
+editor = window.child_window(class_name="Scintilla")
 
-# Print all controls inside Preferences
-prefs_window.print_control_identifiers()
+# Now you can interact with it!
+editor.print_control_identifiers()
+"""
+
+# This connects to the full desktop environment
+desktop = Desktop(backend="uia")
+
+# List all windows matching "Notepad"
+elements = desktop.windows(title_re=".*Notepad.*")
+for elem in elements:
+    print(elem.window_text())

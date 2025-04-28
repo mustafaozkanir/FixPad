@@ -101,7 +101,7 @@ Remember:
 - You MUST choose actions that help reproduce **this specific bug**.
 - Pay attention to feedback from the Reflection on the last step.
 - Do not make any assumption! Use provided inputs to observe your environment correctly!
-- Make sure that your next action is always aligned with the original **bug report**.
+- Make sure that your next action is always aligned with the original **Bug Report**.
 
 ---
 
@@ -196,6 +196,7 @@ Respond in **strict JSON** like this:
   "evaluation": "FAILURE",
   "reflection": "The last action attempted to open the View menu. However, the current UI state shows that the Edit menu is now open, meaning the action did not achieve the intended goal and needs to be corrected."
 }}
+
 """
 
 observation_prompt = """
@@ -240,34 +241,31 @@ AVAILABLE_ACTIONS = """
   Format: {{"type": "moveTo", "bbox": [x_min, y_min, x_max, y_max]}}
 
 2. click:
-  Clicks the mouse at the current location.
-  You must specify a 'label' when you are trying to click on a specific UI element (like 'Edit', 'Count', etc.).
-  Use labels directly from the **Bug Report NOT FROM THE CONTENT FIELD OF PARSED_CONTENT**. Even if a label does not exist in the parsed_content, choose label from the words in the given **Bug Report**.
-  Format: 
+  Clicks the mouse at the current location. Remember to use moveTo action before clicking anywhere
+  When performing a click action, you must always specify a 'label' corresponding to the UI element you intend to interact with (such as 'Edit', 'Count', 'Format', etc.). Labels must be selected strictly from the words or phrases mentioned in the **Bug Report**, not from the Parsed Content provided by the system. Even if a label does not appear in the parsed_content, you must still **rely solely on the Bug Report** as your source of truth when deciding which label to use.  Format: 
   {{"type": "click", "label": "Find what"}}
 
 3. paste:
   Pastes the given text at the current cursor location. Use this when need to paste lines.
   Format: {{"type": "paste", "text": "your text here"}}
 
-4. keyDown:
-   Presses and holds a specific keyboard key.
-   Format: {"type": "keyDown", "key": "alt"}
+4. hotkey:
+   Presses one or more keys together (e.g., Alt+H, Ctrl+C).
+   Format: {{"type": "hotkey", "keys": ["alt", "h"]}}  
 
-5. keyUp:
-   Releases a previously held keyboard key.
-   Format: {"type": "keyUp", "key": "ctrl"}
+5. highlight:
+   Highlights text from a starting line to an ending line (normal linear selection).
+   Format: {{"type": "highlight", "start_line": 3, "end_line": 7}}
 
-6. dragSelect:
-   Simulates a click-and-drag operation from a start position to an end position.
-   Format: {"type": "dragSelect", "start_bbox": [x_min, y_min, x_max, y_max], "end_bbox": [x_min, y_min, x_max, y_max]}
+6. multi_select:
+   Selects multiple lines in column mode from a starting line to an ending line.
+   But before using this actio, make sure that there are enough number of lines in the screen. If not use **paste** action to populate the editor with enough number of lines!
+   Format: {{"type": "multi_select", "start_line": 3, "end_line": 30}}
+
 
 REMEMBER THESE WHEN INTERACTING WITH UI ELEMENTS:
-- You can combine actions (e.g., moveTo followed by click) to interact with UI elements like menus or buttons.
-- To perform a multi-line selection:
-  - Press and hold the "Alt" key using a `keyDown` action.
-  - Use a `dragSelect` action to click at the starting position (e.g., Line 1) and drag down to the desired end position (e.g., Line 5). Note that you must click to the **end of the text** for proper selection.
-  - After completing the drag selection, release the "Alt" key using a `keyUp` action.
+- You can combine actions (e.g., moveTo followed by click or highlight by hotkey) to interact with UI elements like menus or buttons.
+
 
 """
 
@@ -280,9 +278,10 @@ EXAMPLE_RESPONSE = """
     {"type": "click", "label": "Edit"}
   ]
 }
+
 **Example 2**
 {
-  "thought": "I need to input a number into the 'Repeat' field, so I will move to the detected 'Repeat' label.",
+  "thought": "I need to input a number into the 'Repeat' field, so I will move to the 'Repeat', click it and paste the input.",
   "actions": [
     {
       "type": "moveTo",
@@ -294,9 +293,24 @@ EXAMPLE_RESPONSE = """
     },
     {
       "type": "paste",
-      "text": "56"
+      "text": "54"
     }
   ]
 }
 
+**Example 3**
+{
+  "thought": "I need to highlight lines 3 to 7 in the editor to prepare them for hiding, and then press Alt+H to trigger the hiding operation as described in the bug report.",
+  "actions": [
+    {
+      "type": "highlight",
+      "start_line": 3,
+      "end_line": 7
+    },
+    {
+      "type": "hotkey",
+      "keys": ["alt", "h"]
+    }
+  ]
+}
 """
