@@ -21,6 +21,62 @@ def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
     y = int((y_min + y_max) / 2 * screen_height)
     return x, y
 
+
+import re
+
+def find_best_matching_control(window, label):
+    """
+    Finds the best matching control based on:
+    1. Exact match priority
+    2. Shortest window text
+    3. Friendly control types (Edit > RadioButton > Button > Other)
+    """
+    try:
+        all_controls = window.descendants()
+
+        # First, exact matches
+        exact_matches = [ctrl for ctrl in all_controls 
+                         if ctrl.window_text().strip().lower() == label.strip().lower()]
+        
+        if exact_matches:
+            print(f"✅ Exact match found for '{label}'.")
+            return prioritize_control_types(exact_matches)
+
+        # No exact match, fallback to partial matches
+        regex_matches = [ctrl for ctrl in all_controls 
+                         if ctrl.window_text() and re.search(label, ctrl.window_text(), re.IGNORECASE)]
+        
+        if regex_matches:
+            print(f"🔎 {len(regex_matches)} partial matches found for '{label}'.")
+            # Sort by shortest window_text length
+            regex_matches.sort(key=lambda ctrl: len(ctrl.window_text()))
+            return prioritize_control_types(regex_matches)
+
+        print(f"❌ No matching controls found for '{label}'.")
+        return None
+
+    except Exception as e:
+        print(f"⚠️ Error during control search: {e}")
+        return None
+
+def prioritize_control_types(matches):
+    """
+    Prefer Edit > RadioButton > Button > Anything else.
+    """
+    edit_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Edit"]
+    radio_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "RadioButton"]
+    button_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Button"]
+    menuitem_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "MenuItem"]
+    groupbox_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "GroupBox"]
+    other_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() not in ["Edit", "RadioButton", "Button", "MenuItem", "GroupBox"]]
+
+    for group in [edit_controls, radio_controls, button_controls, menuitem_controls, groupbox_controls, other_controls]:
+        if group:
+            return group[0]
+
+    return None
+
+
 def execute_actions(actions):
     """
     Executes a list of UI actions using PyAutoGUI.
@@ -59,51 +115,17 @@ def execute_actions(actions):
 
             found = False
 
-            if label and window:
-                try:
-                    # 1. Get all descendants
-                    all_controls = window.descendants()
-
-                    # 2. Filter manually based on regex matching
-                    matches = [ctrl for ctrl in all_controls if ctrl.window_text() and re.search(label, ctrl.window_text(), re.IGNORECASE)]
-                    print(f"🔎 Found {len(matches)} matching controls for label '{label}'")
-
-                    if matches:
-                        # Step 2: Prioritize controls
-                        edit_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Edit"]
-                        radio_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "RadioButton"]
-                        button_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Button"]
-                        other_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() not in ["Edit", "RadioButton", "Button"]]
-
-                        # Try in order
-                        chosen_control = None
-                        if edit_controls:
-                            chosen_control = edit_controls[0]
-                            print("✅ Prioritized Edit control.")
-                        elif radio_controls:
-                            chosen_control = radio_controls[0]
-                            print("✅ Prioritized RadioButton control.")
-                        elif button_controls:
-                            chosen_control = button_controls[0]
-                            print("✅ Prioritized Button control.")
-                        elif other_controls:
-                            chosen_control = other_controls[0]
-                            print("✅ Using other control.")
-
-                        if chosen_control:
-                            rect = chosen_control.rectangle()
-                            center_x = (rect.left + rect.right) // 2
-                            center_y = (rect.top + rect.bottom) // 2
-                            pyautogui.moveTo(center_x, center_y, duration=0.3)
-                            pyautogui.doubleClick()
-                            print(f"✅ Double-clicked on '{label}' ({chosen_control.friendly_class_name()}) successfully.")
-                            found = True
-
-                except Exception as e:
-                    print(f"⚠️ Error during control search: {e}")
-
-            if not found:
-                print(f"⏩ No matching control found. Falling back to clicking at current mouse position.")
+            control = find_best_matching_control(window, label)
+            if control:
+                rect = control.rectangle()
+                center_x = (rect.left + rect.right) // 2
+                center_y = (rect.top + rect.bottom) // 2
+                pyautogui.moveTo(center_x, center_y, duration=0.3)
+                pyautogui.doubleClick()
+                print(f"✅ Double-clicked on '{label}' ({control.friendly_class_name()}) successfully.")
+                found = True
+            else:
+                print(f"⏩ No matching control found. Clicking at current mouse position.")
                 pyautogui.click()
 
         elif action_type == "paste":

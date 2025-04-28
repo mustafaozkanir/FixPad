@@ -13,7 +13,7 @@ Paste a└c into an empty Notepad++ tab.
 Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
 Click Count.
 """
-(Alıyorduk ama input_field adjustment gidince sıkıntılı oldu)
+(Alıyoruz)
 
 3. 
 bug_report = """STR:
@@ -40,7 +40,7 @@ NPP crashes.
 
 bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
 
-(Genelde alıyoruz ama Omniparser'ın iyi niyetine kaldık. Binary Content Copy derse sıkıntı oluyor)
+(Alıyoruz: ama Omniparser'ın iyi niyetine kaldık. Binary Content Copy derse sıkıntı oluyor)
 
 5.
 bug_report ="""
@@ -103,7 +103,7 @@ Current Behavior
 Notepad++ Freeze.
 """
 
-(Kafası direk multi-selecte gitti ama doğru seçmeyi gösterirsek yapabilir bir de hotkey kullandırmamız lazım galiba)
+(Bazen alıyoruz ama sağlam değil)
 
 7.
 bug_report="""
@@ -124,7 +124,7 @@ While holding the Left Control key, double click your left mouse button on the e
 Program should now close itself
 """
 
-(Alamıyoruz: Delimiter inputuna tıklayamıyor 8.4.6'da)
+(Alamıyoruz: Close delimiterına tıklayamıyor)
 
 9.
 bug_report="""
@@ -133,5 +133,5 @@ Copy -1 to the clipboard
 Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
 Press "OK"
 """
-(Alamıyoruz: Çünkü Inputlara Tıklayamıyor)
+(Alıyoruz: Sadece bazen halüsinasyonu abartıyor OK yerine Cancela basıyor omniparser oku vermediği için)
 

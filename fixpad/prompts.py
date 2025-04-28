@@ -241,7 +241,8 @@ AVAILABLE_ACTIONS = """
 
 2. click:
   Clicks the mouse at the current location.
-  You must specify a 'label' when you are trying to click on a specific UI element (like 'Edit', 'Count', etc.). Use labels directly from the steps to reproduce **NOT FROM THE CONTENT FIELD OF PARSED_CONTENT**.
+  You must specify a 'label' when you are trying to click on a specific UI element (like 'Edit', 'Count', etc.).
+  Use labels directly from the **Bug Report NOT FROM THE CONTENT FIELD OF PARSED_CONTENT**. Even if a label does not exist in the parsed_content, choose label from the words in the given **Bug Report**.
   Format: 
   {{"type": "click", "label": "Find what"}}
 
