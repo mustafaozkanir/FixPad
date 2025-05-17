@@ -1,0 +1,56 @@
+[
+  {
+    "thought": "The first step is to open the Edit menu. Then, I need to navigate to 'Paste Special' and then click 'Copy Binary Content'.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.047521430999040604,
+          0.0465938076376915,
+          0.07139866799116135,
+          0.06736114621162415
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Edit"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the Edit menu is open, I need to navigate to 'Paste Special' and click it. According to the parsed content, 'Paste Special' is located at bbox [0.07171034812927246, 0.6148320436477661, 0.40303999185562134, 0.6507110595703125].",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.07171034812927246,
+          0.6148320436477661,
+          0.40303999185562134,
+          0.6507110595703125
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Paste Special"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'Paste Special' submenu is open, I need to click on 'Copy Binary Content' to trigger the bug. According to the parsed content, 'Binary Content Copy' is located at bbox [0.41097068786621094, 0.6885935664176941, 0.6146604418754578, 0.7227885127067566].",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.41097068786621094,
+          0.6885935664176941,
+          0.6146604418754578,
+          0.7227885127067566
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Binary Content Copy"
+      }
+    ]
+  }
+]

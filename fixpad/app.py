@@ -4,18 +4,25 @@ import json, time, os
 # Custom Project Modules
 from prompts import system_prompt, action_prompt, observation_prompt, reflection_prompt, AVAILABLE_ACTIONS, EXAMPLE_RESPONSE
 from env_manager import launch_notepadpp, capture_notepadpp_only, detect_crash, save_annotated_image
-from util import clean_json_response, init_vertex_ai, log_parsed_content, log_messages
+from util import clean_json_response, init_vertex_ai, log_parsed_content, log_messages, save_run_logs
 from agents import ActionAgent, ReflectionAgent, ObserverAgent
-from action_manager import parse_actions, execute_actions
-from omniparser import get_parsed_image_content
+from action_manager import parse_actions, execute_actions, replay_trajectory
+from omniparser_alternative import get_parsed_image_content
+# from omniparser import get_parsed_image_content
+
 
 init_vertex_ai()
 
-def agent_loop(bug_report, max_iterations):
+BASE_LOG_DIR = os.path.join(os.path.dirname(__file__), "run_logs")
+os.makedirs(BASE_LOG_DIR, exist_ok=True)
+
+def agent_loop(bug_report, max_iterations, bug_id, log_dir):
 
     os.makedirs("screenshots", exist_ok=True)
     os.makedirs("annotated_screenshots", exist_ok=True)
 
+    # ⏱ Start timing
+    start_time = time.time()
     launch_notepadpp()
 
     initial_screenshot_path = f"screenshots/iteration_0.png"
@@ -107,8 +114,15 @@ def agent_loop(bug_report, max_iterations):
         #time.sleep(3) # To not crash Gemini Server
         
         if(detect_crash()):
-            print("✅ Bug is successfully reproduced!")
+            print("✅  Bug is successfully reproduced!")
             break
+    
+    # ⏱ End timing
+    end_time = time.time()
+    elapsed = end_time - start_time
+    print(f"⏱ Total reproduction time: {elapsed:.2f} seconds")
+
+    save_run_logs(bug_id, action_agent.trajectory, elapsed)
         
 bug_report = r"""Steps to Reproduce:
 Paste a└c into an empty Notepad++ tab.
@@ -116,4 +130,6 @@ Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\
 Click Count.
 """
 
-agent_loop(bug_report=bug_report, max_iterations=30)
+BUG_ID = "bug_010"
+agent_loop(bug_report=bug_report, max_iterations=20, bug_id=BUG_ID, log_dir="run_logs")
+#replay_trajectory(BUG_ID)

@@ -1,0 +1,75 @@
+[
+  {
+    "thought": "The first step is to create a file with 2 numbers on two lines, one with more than 20 digits. I will paste the numbers into the editor.",
+    "actions": [
+      {
+        "type": "paste",
+        "text": "123456789012345678901\n1"
+      }
+    ]
+  },
+  {
+    "thought": "The next step is to select both lines. I will use the highlight action to select from line 1 to line 2.",
+    "actions": [
+      {
+        "type": "highlight",
+        "start_line": 1,
+        "end_line": 2
+      }
+    ]
+  },
+  {
+    "thought": "Now that the lines are selected, I need to navigate to the 'Edit' menu, then 'Line operations', and finally 'Sort Lines as Integers Ascending'. I will start by moving to the 'Edit' menu and clicking it.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.047239627689123154,
+          0.04574602097272873,
+          0.07141482084989548,
+          0.06745726615190506
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Edit"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'Edit' menu is open, I need to navigate to 'Line Operations'. I will move the mouse to the 'Line Operations' menu item and click it.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.07087168842554092,
+          0.43320608139038086,
+          0.4029470980167389,
+          0.4670482277870178
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Line Operations"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'Line Operations' submenu is open, I need to click on 'Sort Lines as Integers Ascending'. I will move the mouse to the 'Sort Lines as Integers Ascending' menu item and click it.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.41275280714035034,
+          0.7211349606513977,
+          0.8811050653457642,
+          0.8551368713378906
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Sort Lines as Integers Ascending"
+      }
+    ]
+  }
+]

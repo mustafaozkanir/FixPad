@@ -1,14 +1,16 @@
 # Third Party Libraries
 from pywinauto import Application
+from pywinauto.findwindows import find_elements
 import pyperclip
 import pyautogui
 
 # Standard Library
 import time
 import json
-import re
+import os
 
 # Custom Project Modules
+from env_manager import launch_notepadpp
 from util import clean_json_response
 
 # Global delay to adjust the slight pause between actions
@@ -21,35 +23,58 @@ def bbox_to_center_xy(bbox, screen_width=960, screen_height=720):
     y = int((y_min + y_max) / 2 * screen_height)
     return x, y
 
+def get_main_notepadpp_window():
+    try:
+        # Find all windows with Notepad++ in the title
+        windows = find_elements(title_re=".*Notepad.*", backend="uia")
+
+        # Filter: must contain ' - Notepad++' and NOT 'File Explorer'
+        main_candidates = [
+            w for w in windows
+            if " - Notepad++" in w.name and "File Explorer" not in w.name
+        ]
+
+        if not main_candidates:
+            raise RuntimeError("❌ Main Notepad++ window not found.")
+
+        main_window = main_candidates[0]
+        app = Application(backend="uia").connect(handle=main_window.handle)
+        return app.window(handle=main_window.handle)
+
+    except Exception as e:
+        print(f"❌ Failed to get main Notepad++ window: {e}")
+        return None
+
 def find_best_matching_control(window, label):
     """
-    Finds the best matching control based on:
-    1. Exact match priority
-    2. Shortest window text
-    3. Friendly control types (Edit > RadioButton > Button > Other)
+    Matching priority (in order):
+    1. Exact match (case-insensitive)
+    2. Suffix match (e.g., label="Define" matches "Define your language...")
+    3. Substring match (fallback, may be noisy)
     """
     try:
         all_controls = window.descendants()
+        label_lower = label.strip().lower()
 
-        # First, exact matches
+        # 1. Exact match
         exact_matches = [ctrl for ctrl in all_controls 
-                         if ctrl.window_text().strip().lower() == label.strip().lower()]
-        
+                         if ctrl.window_text().strip().lower() == label_lower]
         if exact_matches:
-            print(f"✅ Exact match found for '{label}'.")
             return prioritize_control_types(exact_matches)
 
-        # No exact match, fallback to partial matches
-        regex_matches = [ctrl for ctrl in all_controls 
-                         if ctrl.window_text() and re.search(label, ctrl.window_text(), re.IGNORECASE)]
-        
-        if regex_matches:
-            print(f"🔎 {len(regex_matches)} partial matches found for '{label}'.")
-            # Sort by shortest window_text length
-            regex_matches.sort(key=lambda ctrl: len(ctrl.window_text()))
-            return prioritize_control_types(regex_matches)
+        # 2. Suffix match (e.g. label="Define" matches "Define your language...")
+        suffix_matches = [ctrl for ctrl in all_controls 
+                          if ctrl.window_text().strip().lower().endswith(label_lower)]
+        if suffix_matches:
+            return prioritize_control_types(suffix_matches)
 
-        print(f"❌ No matching controls found for '{label}'.")
+        # 3. Substring match (fallback)
+        substring_matches = [ctrl for ctrl in all_controls 
+                             if label_lower in ctrl.window_text().strip().lower()]
+        if substring_matches:
+            return prioritize_control_types(substring_matches)
+
+        print(f"❌ No matches found for '{label}'.")
         return None
 
     except Exception as e:
@@ -65,10 +90,12 @@ def prioritize_control_types(matches):
     button_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "Button"]
     menuitem_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "MenuItem"]
     groupbox_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "GroupBox"]
-    other_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() not in ["Edit", "RadioButton", "Button", "MenuItem", "GroupBox"]]
+    combobox_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() == "ComboBox"]
+    other_controls = [ctrl for ctrl in matches if ctrl.friendly_class_name() not in ["Edit", "RadioButton", "Button", "MenuItem", "GroupBox", "ComboBox"]]
 
-    for group in [edit_controls, radio_controls, button_controls, menuitem_controls, groupbox_controls, other_controls]:
+    for group in [edit_controls, radio_controls, button_controls, menuitem_controls, groupbox_controls, combobox_controls, other_controls]:
         if group:
+            print(group) 
             return group[0]
 
     return None
@@ -96,39 +123,39 @@ def execute_actions(actions):
 
         if action_type == "moveTo":
             x, y = bbox_to_center_xy(action["bbox"])
-            """
-            if action.get("input_field", True):
-                x = x + 60
-                print(f"➡️ Moving to ({x}, {y}) with input field adjustment")
-            else:
-            """
-            print(f"➡️ Moving to ({x}, {y})")
+            print(f"➡️  Moving to ({x}, {y})")
             pyautogui.moveTo(x, y, duration=0.3)
 
         elif action_type == "click":
             # Connect to Notepad++
-            try:
-                app = Application(backend="uia").connect(title_re=".*Notepad.*")
-                window = app.window(title_re=".*Notepad.*")
-            except Exception as e:
-                print(f"❌  Could not connect to Notepad++ window: {e}")
-                window = None
+            window = get_main_notepadpp_window()
 
             label = action.get("label", None)
 
             print(f"🖱️  Trying to click '{label}' via Pywinauto first...")
 
             control = find_best_matching_control(window, label)
-            if control:
+            if control and control.element_info.enabled:
                 rect = control.rectangle()
                 center_x = (rect.left + rect.right) // 2
                 center_y = (rect.top + rect.bottom) // 2
                 pyautogui.moveTo(center_x, center_y, duration=0.3)
-                pyautogui.doubleClick()
-                print(f"✅  Double-clicked on '{label}' ({control.friendly_class_name()}) successfully.")
+                if control.friendly_class_name() == "Edit":
+                    pyautogui.doubleClick()
+                    print(f"✅  Double-clicked on '{label}' ({control.friendly_class_name()}) successfully.")
+                elif control.friendly_class_name() == "Static":
+                    rect = control.rectangle()
+                    x = rect.right + 20  # Move 20px to the right of label
+                    y = (rect.top + rect.bottom) // 2
+                    pyautogui.moveTo(x, y, duration=0.3)
+                    pyautogui.click()
+                    print(f"🡆 Clicked next to Static label '{label}' (assumed input field)")
+                else:
+                    pyautogui.click()
+                    print(f"✅  Clicked on '{label}' ({control.friendly_class_name()}) successfully.")
 
             else:
-                print(f"⏩ No matching control found. Clicking at current mouse position.")
+                print(f"⏩  No matching control found. Clicking at current mouse position.")
                 pyautogui.click()
 
         elif action_type == "paste":
@@ -170,10 +197,11 @@ def execute_actions(actions):
             end_x, end_y = line_to_position(end_line)
 
             # Hold Alt key for column mode
-            pyautogui.keyDown('alt')
             pyautogui.moveTo(start_x, start_y, duration=0.5)
+            pyautogui.keyDown('alt')
             pyautogui.mouseDown()
-            pyautogui.moveTo(end_x, end_y, duration=0.5)
+            pyautogui.moveTo(end_x, end_y, duration=0.8)
+            time.sleep(0.2)
             pyautogui.mouseUp()
             pyautogui.keyUp('alt')
 
@@ -217,3 +245,35 @@ def parse_actions(response_text):
         print("⚠️ Could not parse model response:", e)
         print("Raw output:\n", response_text)
         return None
+    
+def replay_trajectory(bug_id, log_dir="run_logs"):
+    launch_notepadpp()
+    path_to_trajectory_json = os.path.join(log_dir, bug_id, "trajectory.json")
+    time_log_path = os.path.join(log_dir, bug_id, "time.txt")
+
+    if not os.path.exists(path_to_trajectory_json):
+        print(f"❌ No trajectory found for bug ID '{bug_id}' at {path_to_trajectory_json}")
+        return
+
+    with open(path_to_trajectory_json, "r") as f:
+        trajectory = json.load(f)
+
+    print(f"\n▶️  Replaying trajectory for {bug_id}...")
+    start_time = time.time()
+
+    for step in trajectory:
+        actions = step["actions"]
+        print(f"\n🔁  Replaying step: {step['thought']}")
+        execute_actions(actions)
+        time.sleep(1.0)
+
+    end_time = time.time()
+    elapsed = end_time - start_time
+    print(f"\n⏱ Total verification (replay) time: {elapsed:.2f} seconds")
+
+    # Append verification time to time.txt
+    with open(time_log_path, "a") as f:
+        f.write(f"Verification Time: {elapsed:.4f}\n")
+
+    print(f"✅ Appended verification time to {time_log_path}")
+

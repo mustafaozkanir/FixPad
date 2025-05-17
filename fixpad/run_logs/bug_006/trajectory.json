@@ -1,0 +1,94 @@
+[
+  {
+    "thought": "The first step is to open the 'Language' menu. I will move the mouse to the 'Language' menu and click it.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.2395833283662796,
+          0.04722222313284874,
+          0.3010416626930237,
+          0.07222222536802292
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Language"
+      }
+    ]
+  },
+  {
+    "thought": "The next step according to the bug report is 'Define your language...'. I need to find this option in the currently opened 'Language' menu and click it.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.25119447708129883,
+          0.7545721530914307,
+          0.45623353123664856,
+          0.7905524373054504
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Define language;"
+      }
+    ]
+  },
+  {
+    "thought": "The next step is to click on the 'Styler' button in the 'User Define Language' window. I will move the mouse to the 'Styler' button and click it.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.3664705157279968,
+          0.45317110419273376,
+          0.4529874920845032,
+          0.4838120639324188
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Styler"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'Styler Dialog' is open, I need to type something into either the 'Name' or 'Size' field, and then hit enter. I will start with the 'Name' field. First, I need to move the mouse to the 'Name' field.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.2927083373069763,
+          0.3513889014720917,
+          0.33020833134651184,
+          0.3708333373069763
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Name"
+      }
+    ]
+  },
+  {
+    "thought": "Now that I've clicked the 'Name' field, I need to paste some text into it. I will paste the word 'test' into the field.",
+    "actions": [
+      {
+        "type": "paste",
+        "text": "test"
+      }
+    ]
+  },
+  {
+    "thought": "Now that I've pasted the text 'test' into the 'Name' field, the next step is to hit the 'Enter' key, as per the bug report. This should trigger the crash.",
+    "actions": [
+      {
+        "type": "hotkey",
+        "keys": [
+          "enter"
+        ]
+      }
+    ]
+  }
+]

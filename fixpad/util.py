@@ -45,3 +45,20 @@ def log_messages(message, source, iteration, file_path="messages.txt"):
         f.write(f"\n{source}: \n")
         f.write(message)
         f.write("\n")
+
+def save_run_logs(bug_id, trajectory, elapsed_seconds):
+    base_dir = os.path.dirname(__file__)
+    log_root = os.path.join(base_dir, "run_logs", bug_id)
+    os.makedirs(log_root, exist_ok=True)
+
+    # Save trajectory
+    traj_path = os.path.join(log_root, "trajectory.json")
+    with open(traj_path, "w") as f:
+        json.dump(trajectory, f, indent=2)
+
+    # Save time
+    time_path = os.path.join(log_root, "time.txt")
+    with open(time_path, "w") as f:
+        f.write(f"Reproduction Time: {elapsed_seconds:.4f}\n")
+
+    print(f"✅ Logs saved for {bug_id} in {log_root}")

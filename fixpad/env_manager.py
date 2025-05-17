@@ -7,18 +7,31 @@ import subprocess
 import time
 import ctypes
 import base64
+import os
 
 
 def launch_notepadpp(resized_width=960, resized_height=720):
-    # Launch Notepad++
-    subprocess.Popen(["C:\\Program Files\\Notepad++\\notepad++.exe"])
-    time.sleep(1.0)  # Wait for window to appear
+    possible_paths = [
+        "C:\\Program Files\\Notepad++\\notepad++.exe",
+        "C:\\Program Files (x86)\\Notepad++\\notepad++.exe",
+        "C:\\Users\\musta\\Documents\\FixpadTools\\npp.8.6.4.portable.x64\\notepad++.exe",  # <- customize this
+    ]
+
+    for path in possible_paths:
+        if os.path.exists(path):
+            subprocess.Popen([path])
+            print(f"✅ Launched Notepad++ from: {path}")
+            break
+    else:
+        raise FileNotFoundError("❌ Could not find Notepad++ in known paths.")
+
+    time.sleep(1.0)
 
     for window in gw.getWindowsWithTitle("Notepad++"):
         if window.isMaximized:
             window.restore()
         window.resizeTo(resized_width, resized_height)
-        window.moveTo(0, 0)  # Move it to top-left corner
+        window.moveTo(0, 0)
         break
 
 def capture_notepadpp_only(save_path):
@@ -75,7 +88,13 @@ Detects if the application window no longer exists (fully closed)
 """
 def detect_window_closed(window_title="Notepad++"):
     windows = gw.getWindowsWithTitle(window_title)
-    return len(windows) == 0
+
+    filtered = [
+        w for w in windows
+        if "File Explorer" not in w.title and "Function List" not in w.title
+    ]
+
+    return len(filtered) == 0
 
 """
 Full crash detection combining all methods:

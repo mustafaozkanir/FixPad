@@ -1,0 +1,102 @@
+[
+  {
+    "thought": "The first step is to define a new language for highlighting keywords. This can be done through the 'Language' menu, then 'Define Your Language...'.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.2395833283662796,
+          0.04722222313284874,
+          0.3010416626930237,
+          0.07222222536802292
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Language"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'Language' menu is open, I need to select 'Define Your Language...' to proceed with defining a new language as per the bug report's steps to reproduce.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.2519955039024353,
+          0.7545806765556335,
+          0.4561555087566376,
+          0.7905636429786682
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Define language;"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'User Define Language' window is open, I need to open the 'Styler dialog' to edit text style as described in the bug report. I will click on the 'Styler' button under 'Folding in comment style'.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.26530537009239197,
+          0.6989145874977112,
+          0.3505685031414032,
+          0.7295509576797485
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Styler"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the 'Styler dialog' is open, I need to provide an arbitrary string in the inputs for the font options, specifically the 'Name' field, instead of selecting a font name from the combo-box. Then press enter. So I will move to the 'Name' field, click it and paste the input.",
+    "actions": [
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.2927083373069763,
+          0.3513889014720917,
+          0.33020833134651184,
+          0.3708333373069763
+        ]
+      },
+      {
+        "type": "click",
+        "label": "Name:"
+      },
+      {
+        "type": "paste",
+        "text": "ArbitraryFontName"
+      }
+    ]
+  },
+  {
+    "thought": "Now that I have pasted the arbitrary string into the 'Name' field, I need to simulate pressing 'Enter' to trigger the bug. After that, I will click 'OK' to close the dialog.",
+    "actions": [
+      {
+        "type": "hotkey",
+        "keys": [
+          "enter"
+        ]
+      },
+      {
+        "type": "moveTo",
+        "bbox": [
+          0.3905707001686096,
+          0.9090985655784607,
+          0.4697539508342743,
+          0.9425387978553772
+        ]
+      },
+      {
+        "type": "click",
+        "label": "the letter \"K\" or \"O\" function."
+      }
+    ]
+  }
+]

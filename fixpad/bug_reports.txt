@@ -1,68 +1,6 @@
-1. 
-bug_report="""
-Steps To Reproduce
-Select at least 28 lines in Column Mode or multi-select at least 28 positions
-Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
-Press "OK"
-"""
-(Alabiliyoruz ama arada halüsinasyonu abartıyor: 8.6.7)
+*****EVALUATION*****
 
-2.
-bug_report = r"""Steps to Reproduce:
-Paste a└c into an empty Notepad++ tab.
-Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
-Click Count.
-"""
-(Alıyoruz)
-
-3. 
-bug_report = """STR:
-Paste the following lines in a new document.
-
-Test
-Test
-Test
-Test
-Test
-Place the caret at line 3.
-View -> Hide Lines.
-Place the caret at line 2.
-View -> Hide Lines.
-Click on the show-lines markers.
-Click on the single show-lines marker.
-
-Result:
-NPP crashes.
-"""
-(Üçgenlere tıklayabilsek alacağız)
-
-4.
-
-bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
-
-(Alıyoruz: ama Omniparser'ın iyi niyetine kaldık. Binary Content Copy derse sıkıntı oluyor)
-
-5.
-bug_report ="""
-Steps to Reproduce the Issue
-Open the Style Configurator in Settings > Style Configurator
-Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian
-Save the theme
-Reopen the Style Configurator
-Change the theme from Obsidian to Default (stylers.xml)
-Press Cancel
-Reopen the Style Configurator again
-Expected Behavior
-The languages should reset back to Obsidian's.
-
-Actual Behavior
-The languages remained from Default (stylers.xml).
-When selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.
-"""
-
-(Her şeyi yapıyor sonuna kadar geliyor ama Swift listede aşağıda kaldığı için onu seçmiyor! )
-
-6.
+1.
 bug_report="""
 Steps To Reproduce
 1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.
@@ -103,9 +41,18 @@ Current Behavior
 Notepad++ Freeze.
 """
 
-(ALDIK: 8.6.9)
+Buggy Version: v8.6.9 (Confirmed)
+Fixed Version: v8.7.7 (Confirmed)
+BOTH SUCCESSFULL
 
-7.
+2.
+bug_report = "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content . Result: NPP crashes."
+Buggy Version: v8.4 Stand up for Ukraine (Confirmed)
+Fixed Version: v8.7.8 (Confirmed
+REPRODUCTION SUCCESSFULL, VERIFICATION UNSUCCESSFULL DUE TO UI CHANGES
+
+
+3.
 bug_report="""
 Steps To Reproduce
 Open empty document (e.g. New 1)
@@ -113,8 +60,199 @@ Open Find dialog (ctrl+f)
 Press "Find All in Current Document" button -> Search results with 0 hits
 Open menu Search->Next Search Result
 """
+Buggy Version: v8.6.8 (Confirmed)
+Fixed Version: v8.7.8 (Confirmed)
+BOTH SUCCESSFULL
 
-(Alıyoruz: 8.6.8'de)
+
+4. 
+bug_report="""
+Description of the Issue
+Notepad crashes with "stoll argument out of range" when sorting integers if number is too large (likely >64 bit)
+
+Steps to Reproduce the Issue
+create a file with 2 numbers on two lines, one with more than 20 digits
+select both and use Edit -> Line operations -> Sort Lines as Integers Ascending
+Notepad++ crashes
+Expected Behavior
+At least Notepad++ should not crash, even if sorting is not possible.
+"""
+Buggy Version = 7.6.2
+Fixed Version = 7.7.1
+BOTH SUCCESSFULL
+
+
+5.
+bug_report="""
+Description of the Issue
+Notepad++ can sort lines using a selected column as the sorting "key". However, if some of the lines are short (have less length than the starting column number of the selection), a crash of N++ will result.
+
+Steps to Reproduce the Issue
+Create a new document tab and paste the following:
+aaa
+
+bbbbbb
+
+cccccccc
+
+abcabcabcabc
+Lines that look empty above ARE truly empty (only contain their line-ending characters)
+
+Make a column block with the start column in any column greater than col 1, for example:
+
+Execute Edit (menu) -> Line Operations -> Sort Lines Lexicographically Ascending
+
+Expected Behavior
+I expect Notepad++ not to crash. :)
+
+Actual Behavior
+Notepad++ crashes (closes on its own) with the following series of popups before the "closing":
+"""
+Buggy Version = 7.3.3
+Fixed Version = 7.8
+Bir kere aldık ama alamıyoruz
+
+
+6.
+bug_report="""
+Description of the Issue
+When hitting enter after typing either the name or the size of a font in the Styler Dialog of the User Defined Language, Notepad++ crashes.
+
+Steps to Reproduce the Issue
+Language -> Define your language...
+Styler
+Type something in Name or Size and hit enter
+Expected Behavior
+Apply changes made to name or size of the font
+
+Actual Behavior
+Notepad++ crashes
+"""
+
+Buggy Version = 7.5.4
+Fixed Version = 7.5.6
+BOTH SUCCESSFULL
+
+
+7.
+bug_report="""
+Description of the Issue
+When defining new highlighting rules for a custom language, opening the "Styler dialog" and providing an arbitrary string in the inputs for the font options will crash the program
+
+Steps to Reproduce the Issue
+Define a new language for highlighting keywords
+Open the Styler dialog to edit text style
+Instead of selecting a font name and font size from the combo-box, write directly an arbitrary string and press enter
+Expected Behavior
+Either detect closest match for user input or leave input field empty
+
+Actual Behavior
+Program crash
+"""
+Yukarıdakinin aynısı Buggy Version 7.2.2
+Buggy Version = 7.5.4
+Fixed Version = 7.5.6
+BOTH SUCCESSFULL
+
+
+8.
+bug_report="""
+Steps To Reproduce
+Copy -1 to the clipboard
+Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
+Press "OK"
+"""
+Buggy Version = 8.6.7
+Fixed Version = 8.6.8
+BOTH SUCCESSFULL
+
+
+9.
+bug_report="""
+Steps To Reproduce
+Select at least 28 lines in Column Mode or multi-select at least 28 positions
+Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
+Press "OK"
+"""
+
+Buggy Version = 8.6.7
+Fixed Version = 8.6.8
+BOTH SUCCESSFULL
+
+
+10.
+bug_report = r"""Steps to Reproduce:
+Paste a└c into an empty Notepad++ tab.
+Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
+Click Count.
+"""
+Buggy Version: v8.7.7 (Confirmed) 
+Fixed Version: v8.7.8 We are with Ukraine (Confirmed)
+
+
+
+11.
+bug_report="""
+Description of the Issue
+When using the number insertion in a new, empty document, NPP crashes when trying to insert the numbers.
+Bug encountered on NPP 7.2.2 64bit on Win10 64bit
+
+Steps to Reproduce the Issue
+Open a new, empty document in NPP
+Press and hold Alt+Shift and Right Arrow once to select the one character in the column
+Go to Edit > Column Editor...
+Select Number to Insert and fill in 1 for Initial Number, 1 for Increase By, 16 for Repeat, Check Leading Zeros
+Click OK
+"""
+
+Buggy Version: v7
+Fixed Version: 7.3.2
+
+
+*****OLD******
+
+
+3. 
+bug_report = """STR:
+Paste the following lines in a new document.
+
+Test
+Test
+Test
+Test
+Test
+Place the caret at line 3.
+View -> Hide Lines.
+Place the caret at line 2.
+View -> Hide Lines.
+Click on the show-lines markers.
+Click on the single show-lines marker.
+
+Result:
+NPP crashes.
+"""
+(Üçgenlere tıklayabilsek alacağız)
+
+5.
+bug_report ="""
+Steps to Reproduce the Issue
+Open the Style Configurator in Settings > Style Configurator
+Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian
+Save the theme
+Reopen the Style Configurator
+Change the theme from Obsidian to Default (stylers.xml)
+Press Cancel
+Reopen the Style Configurator again
+Expected Behavior
+The languages should reset back to Obsidian's.
+
+Actual Behavior
+The languages remained from Default (stylers.xml).
+When selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.
+"""
+
+(Her şeyi yapıyor sonuna kadar geliyor ama Swift listede aşağıda kaldığı için onu seçmiyor! )
+
 
 8.
 bug_report="""
@@ -126,12 +264,4 @@ Program should now close itself
 
 (Alamıyoruz: Close delimiterına tıklayamıyor)
 
-9.
-bug_report="""
-Steps To Reproduce
-Copy -1 to the clipboard
-Open Column Editor, select "Number to Insert", paste -1 into the "Repeat" field
-Press "OK"
-"""
-(Alıyoruz: Sadece bazen halüsinasyonu abartıyor OK yerine Cancela basıyor omniparser oku vermediği için)
 

@@ -1,0 +1,45 @@
+[
+  {
+    "thought": "I need to first paste the lines provided in step 4 of the bug report into the editor, then highlight the last 4 lines (lines 8 to 5), and press ALT + H to hide them.",
+    "actions": [
+      {
+        "type": "paste",
+        "text": "{\n\t// sample\n\t// sample\n}\n{\n\t// sample\n\t// sample\n}"
+      }
+    ]
+  },
+  {
+    "thought": "Now that the code is pasted, I need to highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them, as described in step 5 of the bug report.",
+    "actions": [
+      {
+        "type": "highlight",
+        "start_line": 5,
+        "end_line": 8
+      },
+      {
+        "type": "hotkey",
+        "keys": [
+          "alt",
+          "h"
+        ]
+      }
+    ]
+  },
+  {
+    "thought": "Now that the last 4 lines are hidden, I need to highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them, as described in step 7 of the bug report.",
+    "actions": [
+      {
+        "type": "highlight",
+        "start_line": 1,
+        "end_line": 5
+      },
+      {
+        "type": "hotkey",
+        "keys": [
+          "alt",
+          "h"
+        ]
+      }
+    ]
+  }
+]

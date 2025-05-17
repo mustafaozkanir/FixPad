@@ -5,7 +5,7 @@ import vertexai
 vertexai.init(project="gen-lang-client-0225271187", location="us-central1")
 
 # Load Gemini Flash model
-model = GenerativeModel("gemini-2.0-flash-001")
+model = GenerativeModel("gemini-2.5-flash-preview-04-17")
 
 # Send a prompt
 response = model.generate_content("Under which tab do you think column editor is in Notepad++ application?")

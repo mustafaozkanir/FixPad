@@ -102,6 +102,7 @@ Remember:
 - Pay attention to feedback from the Reflection on the last step.
 - Do not make any assumption! Use provided inputs to observe your environment correctly!
 - Make sure that your next action is always aligned with the original **Bug Report**.
+- Always prefer labels for click action from the original **Bug Report**.
 
 ---
 
@@ -169,6 +170,8 @@ Then write a reflection on:
 
 Remember to not include any suggestion about the next step in your reflection.
 Do not make any **assumption** about the current UI state. Reflect on primarily **Natural Language Description** and what you see in the screen.
+Only evaluate an action as successful (IN_PROGRESS) if its **intended effect is explicitly observable** in the parsed content or the natural language description.  
+If there is no direct confirmation, assume the action FAILED.
 
 ---
 
@@ -223,6 +226,8 @@ Focus on visual cues relevant to current bug reproduction process.
 - If no dropdown menu is open, explicitly say: "No menu is currently open."
 - Pay close attention to small UI elements such as fold markers (green triangles) or icons related to the bug.
 - Describe selections, highlights, or any unusual visual elements.
+- If any text is highlighted or selected (linearly or column-wise), explicitly mention which lines and how they are selected.
+- For column selections (multi_select), describe it as "Lines X to Y are selected in column mode".
 
 --- 
 
@@ -231,8 +236,12 @@ Focus on visual cues relevant to current bug reproduction process.
 Respond with a **single descriptive paragraph** that summarizes the visual state of the application.
 Be concise but specific. Do not speculate or infer hidden information.
 
-Example:
-"The editor shows 5 lines, all containing the word 'Test'. Line 5 appears to be selected, as indicated by the highlight. Two green triangle fold markers are visible next to lines 1 and 4. No menu is currently open."
+Example Responses:
+**Example 1**
+
+{{
+  "observation": "The editor shows 5 lines, all containing the word 'Test'. Line 5 appears to be selected, as indicated by the highlight. Two green triangle fold markers are visible next to lines 1 and 4. No menu is currently open."
+}}
 """
 
 AVAILABLE_ACTIONS = """
@@ -242,7 +251,7 @@ AVAILABLE_ACTIONS = """
 
 2. click:
   Clicks the mouse at the current location. Remember to use moveTo action before clicking anywhere
-  When performing a click action, you must always specify a 'label' corresponding to the UI element you intend to interact with (such as 'Edit', 'Count', 'Format', etc.). Labels must be selected strictly from the words or phrases mentioned in the **Bug Report**, not from the Parsed Content provided by the system. Even if a label does not appear in the parsed_content, you must still **rely solely on the Bug Report** as your source of truth when deciding which label to use.  Format: 
+  When performing a click action, you must always specify the name of corresponding to the UI element you intend to interact with (such as 'Edit', 'Count', 'Format', 'Define Your Language...', etc.). Labels must be selected strictly from the words or phrases mentioned in the **Bug Report**, not from the parsed_content provided by the system. You must **rely solely on the Bug Report** as your source of truth when deciding which label to use. Format: 
   {{"type": "click", "label": "Find what"}}
 
 3. paste:

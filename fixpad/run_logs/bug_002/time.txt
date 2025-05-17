@@ -1,0 +1,5 @@
+Reproduction Time: 56.1508
+Verification Time: 7.9149
+
+Verification Time: 7.4354
+Verification Time: 7.7115

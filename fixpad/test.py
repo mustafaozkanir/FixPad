@@ -1,20 +1,11 @@
-from pywinauto import Application, Desktop
-"""
-# Connect to Notepad++
-app = Application(backend="uia").connect(title_re=".*Notepad.*")
-window = app.window(title_re=".*Notepad.*")
+from pywinauto import Application
+from pywinauto.findwindows import find_elements
+from env_manager import detect_crash
+import pyautogui as py
+from time import sleep
 
-# Find Scintilla editor window
-editor = window.child_window(class_name="Scintilla")
+if(detect_crash()):
+    print("✅  Bug is successfully reproduced!")
 
-# Now you can interact with it!
-editor.print_control_identifiers()
-"""
-
-# This connects to the full desktop environment
-desktop = Desktop(backend="uia")
-
-# List all windows matching "Notepad"
-elements = desktop.windows(title_re=".*Notepad.*")
-for elem in elements:
-    print(elem.window_text())
+sleep(2)
+py.click(372.5757694244385, 337)
