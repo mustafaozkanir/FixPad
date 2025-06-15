@@ -30,15 +30,9 @@ Steps To Reproduce
 }
 With the fold markers on line 4 (>) and line 8 (<).
 
-
 7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.
 
-
 8/ Notepad++ freezes.
-
-
-Current Behavior
-Notepad++ Freeze.
 """
 
 Buggy Version: v8.6.9 (Confirmed)
@@ -188,7 +182,7 @@ Click Count.
 """
 Buggy Version: v8.7.7 (Confirmed) 
 Fixed Version: v8.7.8 We are with Ukraine (Confirmed)
-
+BOTH SUCCESSFULL
 
 
 11.
@@ -207,12 +201,10 @@ Click OK
 
 Buggy Version: v7
 Fixed Version: 7.3.2
+REPRODUCTION UNSUCCESSFULL
 
 
-*****OLD******
-
-
-3. 
+12.
 bug_report = """STR:
 Paste the following lines in a new document.
 
@@ -231,9 +223,11 @@ Click on the single show-lines marker.
 Result:
 NPP crashes.
 """
-(Üçgenlere tıklayabilsek alacağız)
+Buggy Version: v8.4.5 (Confirmed)
+Fixed Version: v8.7.8 
+REPRODUCTION UNSUCCESSFULL
 
-5.
+13.
 bug_report ="""
 Steps to Reproduce the Issue
 Open the Style Configurator in Settings > Style Configurator
@@ -252,9 +246,11 @@ When selecting an item outside of the range covered by Obsidian that does not ex
 """
 
 (Her şeyi yapıyor sonuna kadar geliyor ama Swift listede aşağıda kaldığı için onu seçmiyor! )
+Buggy Version: v7.9.2 (Confirmed)
+Fixed Version: v8.7.8 (Confirmed)
 
 
-8.
+14.
 bug_report="""
 Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (") and close the Preferences window.
 Create new document (Ctrl + N), type something and press Enter to create a new line
@@ -263,5 +259,8 @@ Program should now close itself
 """
 
 (Alamıyoruz: Close delimiterına tıklayamıyor)
+Buggy Version: v8.4.6 Confirmed)
+Fixed Version: v8.7.8 (Confirmed)
+
 
 

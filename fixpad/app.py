@@ -21,7 +21,7 @@ def agent_loop(bug_report, max_iterations, bug_id, log_dir):
     os.makedirs("screenshots", exist_ok=True)
     os.makedirs("annotated_screenshots", exist_ok=True)
 
-    # ⏱ Start timing
+    # Start timing
     start_time = time.time()
     launch_notepadpp()
 
@@ -117,19 +117,21 @@ def agent_loop(bug_report, max_iterations, bug_id, log_dir):
             print("✅  Bug is successfully reproduced!")
             break
     
-    # ⏱ End timing
+    # End timing
     end_time = time.time()
     elapsed = end_time - start_time
     print(f"⏱ Total reproduction time: {elapsed:.2f} seconds")
 
-    save_run_logs(bug_id, action_agent.trajectory, elapsed)
+    # Disable LOGGING
+    # save_run_logs(bug_id, action_agent.trajectory, elapsed)
         
-bug_report = r"""Steps to Reproduce:
-Paste a└c into an empty Notepad++ tab.
-Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\u*(?=[^\l]).
-Click Count.
+bug_report="""
+Steps To Reproduce
+Select at least 28 lines in Column Mode or multi-select at least 28 positions
+Open Column Editor, select "Number to Insert", set "Increase by" to 9999999, "Repeat" to 1, and "Format" to "Hex"
+Press "OK"
 """
 
-BUG_ID = "bug_010"
+BUG_ID = "bug_009"
 agent_loop(bug_report=bug_report, max_iterations=20, bug_id=BUG_ID, log_dir="run_logs")
 #replay_trajectory(BUG_ID)
