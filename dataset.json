@@ -1,11 +1,214 @@
-{
-    "bug_id": "001",
-    "title": "",
-    "bug_report_url": "",
-    "s2r": "",
-    "buggy_version": "",
-    "patched_version": "",
-    "is_fix_valid": "",    
-    "crash_behavior": "",
-    "notes": ""
-}
+[
+    {
+        "bug_id": "001",
+        "title": "[BUG] If we overlap line masking, Notepad++ freezes/crashes.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15630",
+        "steps_to_reproduce": "Steps To Reproduce\n1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.\n\n2/ Extract it.\n\n3/ Launch Notepad++\n\n4/ Write the following lines:\n\n{\n\t// sample\n\t// sample\n}\n{\n\t// sample\n\t// sample\n}\n5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.\n\n6/ Now, you should only see this:\n\n{\n\t// sample\n\t// sample\n}\n}\nWith the fold markers on line 4 (>) and line 8 (<).\n\n7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.\n\n8/ Notepad++ freezes.",
+        "buggy_version": "npp.8.6.9",
+        "patched_version": "npp.8.7.7",
+        "fix_classification": "correct",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "002",
+        "title": "[BUG] If we overlap line masking, Notepad++ freezes/crashes.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15630",
+        "steps_to_reproduce": "Steps To Reproduce\n1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.\n\n2/ Extract it.\n\n3/ Launch Notepad++\n\n4/ Write the following lines:\n\n{\n\t// sample\n\t// sample\n}\n{\n\t// sample\n\t// sample\n}\n5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.\n\n6/ Now, you should only see this:\n\n{\n\t// sample\n\t// sample\n}\n}\nWith the fold markers on line 4 (>) and line 8 (<).\n\n7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.\n\n8/ Notepad++ freezes.",
+        "buggy_version": "npp.8.6.9",
+        "patched_version": "npp.8.5.6",
+        "fix_classification": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "003",
+        "title": "[BUG] If we overlap line masking, Notepad++ freezes/crashes.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15630",
+        "steps_to_reproduce": "Steps To Reproduce\n1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.\n\n2/ Extract it.\n\n3/ Launch Notepad++\n\n4/ Write the following lines:\n\n{\n\t// sample\n\t// sample\n}\n{\n\t// sample\n\t// sample\n}\n5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.\n\n6/ Now, you should only see this:\n\n{\n\t// sample\n\t// sample\n}\n}\nWith the fold markers on line 4 (>) and line 8 (<).\n\n7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.\n\n8/ Notepad++ freezes.",
+        "buggy_version": "npp.8.6.9",
+        "patched_version": "npp.8.6.7",
+        "fix_classification": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "004",
+        "title": "[BUG] If we overlap line masking, Notepad++ freezes/crashes.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15630",
+        "steps_to_reproduce": "Steps To Reproduce\n1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.\n\n2/ Extract it.\n\n3/ Launch Notepad++\n\n4/ Write the following lines:\n\n{\n\t// sample\n\t// sample\n}\n{\n\t// sample\n\t// sample\n}\n5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.\n\n6/ Now, you should only see this:\n\n{\n\t// sample\n\t// sample\n}\n}\nWith the fold markers on line 4 (>) and line 8 (<).\n\n7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.\n\n8/ Notepad++ freezes.",
+        "buggy_version": "npp.8.6.9",
+        "patched_version": "npp.8.6.8",
+        "fix_classification": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "005",
+        "title": "[BUG] If we overlap line masking, Notepad++ freezes/crashes.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15630",
+        "steps_to_reproduce": "Steps To Reproduce\n1/ Download a Notepad++ Portable Minimalist version to ensure there are no unwanted plugins.\n\n2/ Extract it.\n\n3/ Launch Notepad++\n\n4/ Write the following lines:\n\n{\n\t// sample\n\t// sample\n}\n{\n\t// sample\n\t// sample\n}\n5/ Highlight the last 4 lines (lines 8 to 5) and press ALT + H to hide them.\n\n6/ Now, you should only see this:\n\n{\n\t// sample\n\t// sample\n}\n}\nWith the fold markers on line 4 (>) and line 8 (<).\n\n7/ Highlight all 5 lines (lines 8 to 1, including lines 5, 6, and 7, which are hidden) and press ALT + H to hide them.\n\n8/ Notepad++ freezes.",
+        "buggy_version": "npp.8.6.9",
+        "patched_version": "npp.8.7",
+        "fix_classification": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "006",
+        "title": "[Regression] \"Copy Binary Content\" crashes NPP if there is no selection",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11671",
+        "steps_to_reproduce": "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content.",
+        "buggy_version": "npp.8.4",
+        "patched_version": "npp.8.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "007",
+        "title": "[Regression] \"Copy Binary Content\" crashes NPP if there is no selection",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11671",
+        "steps_to_reproduce": "STR: Make sure no text is selected. Edit -> Paste Special -> Copy Binary Content.",
+        "buggy_version": "npp.8.4",
+        "patched_version": "npp.8.4.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "008",
+        "title": "[BUG] Crash happens while \"Next Search Result\" command is applied on the empty search result.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
+        "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
+        "buggy_version": "npp.8.6.8",
+        "patched_version": "npp8.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "009",
+        "title": "[BUG] Crash happens while \"Next Search Result\" command is applied on the empty search result.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
+        "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
+        "buggy_version": "npp.8.6.8",
+        "patched_version": "npp8.6.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "010",
+        "title": "[BUG] Crash happens while \"Next Search Result\" command is applied on the empty search result.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
+        "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
+        "buggy_version": "npp.8.6.8",
+        "patched_version": "npp8.6.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "011",
+        "title": "[BUG] Crash happens while \"Next Search Result\" command is applied on the empty search result.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
+        "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
+        "buggy_version": "npp.8.6.8",
+        "patched_version": "npp8.6.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "012",
+        "title": "[BUG] Crash happens while \"Next Search Result\" command is applied on the empty search result.",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
+        "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
+        "buggy_version": "npp.8.6.8",
+        "patched_version": "npp8.6.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "013",
+        "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
+        "buggy_version": "7.6.2",
+        "patched_version": "7.7.1",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "the pop-up is different than An exception occurred tab"
+    },
+    {
+        "bug_id": "014",
+        "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
+        "buggy_version": "7.6.2",
+        "patched_version": "7.6.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "the pop-up is different than An exception occurred tab"
+    },
+    {
+        "bug_id": "015",
+        "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
+        "buggy_version": "7.6.2",
+        "patched_version": "7.6.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "the pop-up is different than An exception occurred tab"
+    },
+    {
+        "bug_id": "016",
+        "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
+        "buggy_version": "7.6.2",
+        "patched_version": "7.6.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "the pop-up is different than An exception occurred tab"
+    },
+    {
+        "bug_id": "017",
+        "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
+        "buggy_version": "7.6.2",
+        "patched_version": "7.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "the pop-up is different than An exception occurred tab"
+    },
+    {
+        "bug_id": "",
+        "title": "",
+        "bug_report_url": "",
+        "steps_to_reproduce": "",
+        "buggy_version": "",
+        "patched_version": "",
+        "is_fix_correct": "",    
+        "crash_behavior": "",
+        "notes": ""
+    },     
+    {
+        "bug_id": "",
+        "title": "",
+        "bug_report_url": "",
+        "steps_to_reproduce": "",
+        "buggy_version": "",
+        "patched_version": "",
+        "is_fix_correct": "",    
+        "crash_behavior": "",
+        "notes": ""
+    }
+
+
+]
+

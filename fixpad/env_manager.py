@@ -9,12 +9,100 @@ import ctypes
 import base64
 import os
 
+INSTALLER_DIR = "installers"  # Folder where all installers are stored
+
+INSTALLER_MAP = {
+    "npp.6.2.3": "npp.6.2.3.Installer.exe",
+    "npp.6.7.4": "npp.6.7.4.Installer.exe",
+    "npp.6.9":   "npp.6.9.Installer.exe",
+    "npp.7.3.3": "npp.7.3.3.Installer.exe",
+    "npp.7.5.4": "npp.7.5.4.Installer.exe",
+    "npp.7.5.6": "npp.7.5.6.Installer.exe",
+    "npp.7.6.2": "npp.7.6.2.Installer.exe",
+    "npp.7.6.3": "npp.7.6.3.Installer.exe",
+    "npp.7.6.4": "npp.7.6.4.Installer.exe",
+    "npp.7.6.6": "npp.7.6.6.Installer.exe",
+    "npp.7.7.1": "npp.7.7.1.Installer.exe",
+    "npp.7.7":   "npp.7.7.Installer.exe",
+    "npp.7.8.2": "npp.7.8.2.Installer.exe",
+    "npp.7.8"  : "npp.7.8.Installer.exe",
+    "npp.7.9.2": "npp.7.9.2.Installer.exe",
+    "npp.7.9.5": "npp.7.9.5.Installer.exe",
+    "npp.7":     "npp.7.Installer.exe",
+    "npp.8.4.1": "npp.8.4.1.Installer.x64.exe",
+    "npp.8.4.2": "npp.8.4.2.Installer.x64.exe",
+    "npp.8.4.4": "npp.8.4.4.Installer.x64.exe",
+    "npp.8.4.5": "npp.8.4.5.Installer.x64.exe",
+    "npp.8.4.6": "npp.8.4.6.Installer.x64.exe",
+    "npp.8.4"  : "npp.8.4.Installer.x64.exe",
+    "npp.8.5.6": "npp.8.5.6.Installer.x64.exe",
+    "npp.8.6.4": "npp.8.6.4.Installer.x64.exe",
+    "npp.8.6.5": "npp.8.6.5.Installer.x64.exe",
+    "npp.8.6.6": "npp.8.6.6.Installer.x64.exe",
+    "npp.8.6.7": "npp.8.6.7.Installer.x64.exe",
+    "npp.8.6.8": "npp.8.6.8.Installer.x64.exe",
+    "npp.8.6.9": "npp.8.6.9.Installer.x64.exe",
+    "npp.8.7.2": "npp.8.7.2.Installer.x64.exe",
+    "npp.8.7.4": "npp.8.7.4.Installer.x64.exe",
+    "npp.8.7.5": "npp.8.7.5.Installer.x64.exe",
+    "npp.8.7.7": "npp.8.7.7.Installer.x64.exe",
+    "npp.8.7.8": "npp.8.7.8.Installer.x64.exe",
+    "npp.8.7": "npp.8.7.Installer.x64.exe"
+}
+
+def install_version(version_key):
+    """
+    Installs a specific Notepad++ version silently.
+    """
+    if version_key not in INSTALLER_MAP:
+        raise ValueError(f"No installer defined for version: {version_key}")
+    
+    installer_path = os.path.join(INSTALLER_DIR, INSTALLER_MAP[version_key])
+
+    if not os.path.exists(installer_path):
+        raise FileNotFoundError(f"Installer not found at: {installer_path}")
+
+    print(f"🛠️  Installing {version_key} from {installer_path}")
+
+    # Silent install command
+    result = subprocess.run([installer_path, "/S"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    
+    if result.returncode != 0:
+        print("❌ Installation failed:", result.stderr.decode())
+    else:
+        print("✅ Installation complete.")
+
+
+def uninstall_notepadpp():
+    """
+    Silently uninstalls Notepad++ if present.
+    """
+    # Standard uninstall path used by Notepad++ installer
+    uninstallers = [
+        r"C:\Program Files\Notepad++\uninstall.exe",
+        r"C:\Program Files (x86)\Notepad++\uninstall.exe"
+    ]
+
+    for uninstaller in uninstallers:
+        if os.path.exists(uninstaller):
+            print(f"🧹 Uninstalling Notepad++ from {uninstaller}")
+            subprocess.run([uninstaller, "/S"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            time.sleep(3.0)
+            return
+
+    print("⚠️  No uninstall.exe found — Notepad++ can not be uninstalled.")
+
+def switch_to_version(version_key):
+    print(f"🔁 Switching to version: {version_key}")
+    uninstall_notepadpp()
+    time.sleep(2.0)
+    install_version(version_key)
+    time.sleep(2.0)
 
 def launch_notepadpp(resized_width=960, resized_height=720):
     possible_paths = [
         "C:\\Program Files\\Notepad++\\notepad++.exe",
         "C:\\Program Files (x86)\\Notepad++\\notepad++.exe",
-        "C:\\Users\\musta\\Documents\\FixpadTools\\npp.8.6.4.portable.x64\\notepad++.exe",  # <- customize this
     ]
 
     for path in possible_paths:
@@ -109,3 +197,4 @@ def detect_crash():
     is_closed = detect_window_closed()
     
     return is_hung or is_crashed or is_closed
+
