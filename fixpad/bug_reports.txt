@@ -115,6 +115,7 @@ Buggy Version = 7.3.3
 Fixed Version = 7.8
 Bir kere aldık ama alamıyoruz
 
+1 + 4 = 5 instances in dataset.json
 
 6.
 bug_report="""
@@ -135,6 +136,8 @@ Notepad++ crashes
 Buggy Version = 7.5.4
 Fixed Version = 7.5.6
 BOTH SUCCESSFULL
+
+1 + 4 = 5 instances in dataset.json
 
 
 7.
@@ -157,6 +160,7 @@ Buggy Version = 7.5.4
 Fixed Version = 7.5.6
 BOTH SUCCESSFULL
 
+1 + 4 = 5 instances in dataset.json
 
 8.
 bug_report="""
@@ -169,6 +173,7 @@ Buggy Version = 8.6.7
 Fixed Version = 8.6.8
 BOTH SUCCESSFULL
 
+1 + 4 = 5 instances in dataset.json
 
 9.
 bug_report="""
@@ -182,6 +187,7 @@ Buggy Version = 8.6.7
 Fixed Version = 8.6.8
 BOTH SUCCESSFULL
 
+1 + 4 = 5 instances in dataset.json
 
 10.
 bug_report = r"""Steps to Reproduce:
@@ -193,6 +199,7 @@ Buggy Version: v8.7.7 (Confirmed)
 Fixed Version: v8.7.8 We are with Ukraine (Confirmed)
 BOTH SUCCESSFULL
 
+1 + 4 = 5 instances in dataset.json
 
 11.
 bug_report="""
@@ -272,4 +279,6 @@ Buggy Version: v8.4.6 Confirmed)
 Fixed Version: v8.7.8 (Confirmed)
 
 
+
+15. Yeni bir tane buldum onu ekleyeceğim
 

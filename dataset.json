@@ -82,7 +82,7 @@
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
         "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
         "buggy_version": "npp.8.6.8",
-        "patched_version": "npp8.7.8",
+        "patched_version": "npp.8.7.8",
         "is_fix_correct": "correct",    
         "crash_behavior": "crash_pop-up",
         "notes": ""
@@ -93,7 +93,7 @@
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
         "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
         "buggy_version": "npp.8.6.8",
-        "patched_version": "npp8.6.7",
+        "patched_version": "npp.8.6.7",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": ""
@@ -104,7 +104,7 @@
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
         "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
         "buggy_version": "npp.8.6.8",
-        "patched_version": "npp8.6.6",
+        "patched_version": "npp.8.6.6",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": ""
@@ -115,7 +115,7 @@
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
         "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
         "buggy_version": "npp.8.6.8",
-        "patched_version": "npp8.6.5",
+        "patched_version": "npp.8.6.5",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": ""
@@ -126,7 +126,7 @@
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15247",
         "steps_to_reproduce": "Steps To Reproduce\n1.Open empty document (e.g. New 1)\n2.Open Find dialog (ctrl+f)\n3.Press \"Find All in Current Document\" button -> Search results with 0 hits\n4.Open menu Search->Next Search Result",
         "buggy_version": "npp.8.6.8",
-        "patched_version": "npp8.6.4",
+        "patched_version": "npp.8.6.4",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": ""
@@ -136,8 +136,8 @@
         "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
         "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
-        "buggy_version": "7.6.2",
-        "patched_version": "7.7.1",
+        "buggy_version": "npp.7.6.2",
+        "patched_version": "npp.7.7.1",
         "is_fix_correct": "correct",    
         "crash_behavior": "crash_pop-up",
         "notes": "the pop-up is different than An exception occurred tab"
@@ -147,8 +147,8 @@
         "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
         "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
-        "buggy_version": "7.6.2",
-        "patched_version": "7.6.4",
+        "buggy_version": "npp.7.6.2",
+        "patched_version": "npp.7.6.4",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": "the pop-up is different than An exception occurred tab"
@@ -158,8 +158,8 @@
         "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
         "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
-        "buggy_version": "7.6.2",
-        "patched_version": "7.6.3",
+        "buggy_version": "npp.7.6.2",
+        "patched_version": "npp.7.6.3",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": "the pop-up is different than An exception occurred tab"
@@ -169,8 +169,8 @@
         "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
         "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
-        "buggy_version": "7.6.2",
-        "patched_version": "7.6.6",
+        "buggy_version": "npp.7.6.2",
+        "patched_version": "npp.7.6.6",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": "the pop-up is different than An exception occurred tab"
@@ -180,25 +180,365 @@
         "title": "N++ crashes when sorting lines with numbers longer than 20 digits",
         "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5261",
         "steps_to_reproduce": "Steps to Reproduce the Issue\n1. create a file with 2 numbers on two lines, one with more than 20 digits\n2. select both and use Edit -> Line operations -> Sort Lines as Integers Ascending\n3. Notepad++ crashes",
-        "buggy_version": "7.6.2",
-        "patched_version": "7.7",
+        "buggy_version": "npp.7.6.2",
+        "patched_version": "npp.7.7",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
         "notes": "the pop-up is different than An exception occurred tab"
     },
     {
-        "bug_id": "",
+        "bug_id": "018",
+        "title": "Sort lines on column crashes N++ if range includes lines shorter than selected col",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/3757",
+        "steps_to_reproduce": "Description of the Issue\nNotepad++ can sort lines using a selected column as the sorting \"key\". However, if some of the lines are short (have less length than the starting column number of the selection), a crash of N++ will result.\n\nSteps to Reproduce the Issue\nCreate a new document tab and paste the following:\naaa\n\nbbbbbb\n\ncccccccc\n\nabcabcabcabc\nLines that look empty above ARE truly empty (only contain their line-ending characters)\n\nMake a column block with the start column in any column greater than col 1, for example:\n\nExecute Edit (menu) -> Line Operations -> Sort Lines Lexicographically Ascending",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "019",
+        "title": "Sort lines on column crashes N++ if range includes lines shorter than selected col",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/3757",
+        "steps_to_reproduce": "Description of the Issue\nNotepad++ can sort lines using a selected column as the sorting \"key\". However, if some of the lines are short (have less length than the starting column number of the selection), a crash of N++ will result.\n\nSteps to Reproduce the Issue\nCreate a new document tab and paste the following:\naaa\n\nbbbbbb\n\ncccccccc\n\nabcabcabcabc\nLines that look empty above ARE truly empty (only contain their line-ending characters)\n\nMake a column block with the start column in any column greater than col 1, for example:\n\nExecute Edit (menu) -> Line Operations -> Sort Lines Lexicographically Ascending",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.5.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    }, 
+    {
+        "bug_id": "020",
+        "title": "Sort lines on column crashes N++ if range includes lines shorter than selected col",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/3757",
+        "steps_to_reproduce": "Description of the Issue\nNotepad++ can sort lines using a selected column as the sorting \"key\". However, if some of the lines are short (have less length than the starting column number of the selection), a crash of N++ will result.\n\nSteps to Reproduce the Issue\nCreate a new document tab and paste the following:\naaa\n\nbbbbbb\n\ncccccccc\n\nabcabcabcabc\nLines that look empty above ARE truly empty (only contain their line-ending characters)\n\nMake a column block with the start column in any column greater than col 1, for example:\n\nExecute Edit (menu) -> Line Operations -> Sort Lines Lexicographically Ascending",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.5.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "021",
+        "title": "Sort lines on column crashes N++ if range includes lines shorter than selected col",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/3757",
+        "steps_to_reproduce": "Description of the Issue\nNotepad++ can sort lines using a selected column as the sorting \"key\". However, if some of the lines are short (have less length than the starting column number of the selection), a crash of N++ will result.\n\nSteps to Reproduce the Issue\nCreate a new document tab and paste the following:\naaa\n\nbbbbbb\n\ncccccccc\n\nabcabcabcabc\nLines that look empty above ARE truly empty (only contain their line-ending characters)\n\nMake a column block with the start column in any column greater than col 1, for example:\n\nExecute Edit (menu) -> Line Operations -> Sort Lines Lexicographically Ascending",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.6.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "022",
+        "title": "Sort lines on column crashes N++ if range includes lines shorter than selected col",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/3757",
+        "steps_to_reproduce": "Description of the Issue\nNotepad++ can sort lines using a selected column as the sorting \"key\". However, if some of the lines are short (have less length than the starting column number of the selection), a crash of N++ will result.\n\nSteps to Reproduce the Issue\nCreate a new document tab and paste the following:\naaa\n\nbbbbbb\n\ncccccccc\n\nabcabcabcabc\nLines that look empty above ARE truly empty (only contain their line-ending characters)\n\nMake a column block with the start column in any column greater than col 1, for example:\n\nExecute Edit (menu) -> Line Operations -> Sort Lines Lexicographically Ascending",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.6.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "023",
+        "title": "UDL Styler Dialog crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/4275",
+        "steps_to_reproduce": "Description of the Issue\nWhen hitting enter after typing either the name or the size of a font in the Styler Dialog of the User Defined Language, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Language -> Define your language...\n2. Styler\n3. Type something in Name or Size and hit enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.7.5.6",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "024",
+        "title": "UDL Styler Dialog crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/4275",
+        "steps_to_reproduce": "Description of the Issue\nWhen hitting enter after typing either the name or the size of a font in the Styler Dialog of the User Defined Language, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Language -> Define your language...\n2. Styler\n3. Type something in Name or Size and hit enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.7.3.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "025",
+        "title": "UDL Styler Dialog crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/4275",
+        "steps_to_reproduce": "Description of the Issue\nWhen hitting enter after typing either the name or the size of a font in the Styler Dialog of the User Defined Language, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Language -> Define your language...\n2. Styler\n3. Type something in Name or Size and hit enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "026",
+        "title": "UDL Styler Dialog crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/4275",
+        "steps_to_reproduce": "Description of the Issue\nWhen hitting enter after typing either the name or the size of a font in the Styler Dialog of the User Defined Language, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Language -> Define your language...\n2. Styler\n3. Type something in Name or Size and hit enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.6.9",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "027",
+        "title": "UDL Styler Dialog crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/4275",
+        "steps_to_reproduce": "Description of the Issue\nWhen hitting enter after typing either the name or the size of a font in the Styler Dialog of the User Defined Language, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Language -> Define your language...\n2. Styler\n3. Type something in Name or Size and hit enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.6.7.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "028",
+        "title": "Styler for user-defined highlighting crashes program when given arbitrary string",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2646",
+        "steps_to_reproduce": "Description of the Issue\nWhen defining new highlighting rules for a custom language, opening the \"Styler dialog\" and providing an arbitrary string in the inputs for the font options will crash the program\n\nSteps to Reproduce the Issue\n1. Define a new language for highlighting keywords\n2. Open the Styler dialog to edit text style\n3. Instead of selecting a font name and font size from the combo-box, write directly an arbitrary string and press enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.7.5.6",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "029",
+        "title": "Styler for user-defined highlighting crashes program when given arbitrary string",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2646",
+        "steps_to_reproduce": "Description of the Issue\nWhen defining new highlighting rules for a custom language, opening the \"Styler dialog\" and providing an arbitrary string in the inputs for the font options will crash the program\n\nSteps to Reproduce the Issue\n1. Define a new language for highlighting keywords\n2. Open the Styler dialog to edit text style\n3. Instead of selecting a font name and font size from the combo-box, write directly an arbitrary string and press enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.7.3.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "030",
+        "title": "Styler for user-defined highlighting crashes program when given arbitrary string",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2646",
+        "steps_to_reproduce": "Description of the Issue\nWhen defining new highlighting rules for a custom language, opening the \"Styler dialog\" and providing an arbitrary string in the inputs for the font options will crash the program\n\nSteps to Reproduce the Issue\n1. Define a new language for highlighting keywords\n2. Open the Styler dialog to edit text style\n3. Instead of selecting a font name and font size from the combo-box, write directly an arbitrary string and press enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "031",
+        "title": "Styler for user-defined highlighting crashes program when given arbitrary string",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2646",
+        "steps_to_reproduce": "Description of the Issue\nWhen defining new highlighting rules for a custom language, opening the \"Styler dialog\" and providing an arbitrary string in the inputs for the font options will crash the program\n\nSteps to Reproduce the Issue\n1. Define a new language for highlighting keywords\n2. Open the Styler dialog to edit text style\n3. Instead of selecting a font name and font size from the combo-box, write directly an arbitrary string and press enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.6.9",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "032",
+        "title": "Styler for user-defined highlighting crashes program when given arbitrary string",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2646",
+        "steps_to_reproduce": "Description of the Issue\nWhen defining new highlighting rules for a custom language, opening the \"Styler dialog\" and providing an arbitrary string in the inputs for the font options will crash the program\n\nSteps to Reproduce the Issue\n1. Define a new language for highlighting keywords\n2. Open the Styler dialog to edit text style\n3. Instead of selecting a font name and font size from the combo-box, write directly an arbitrary string and press enter",
+        "buggy_version": "npp.7.5.4",
+        "patched_version": "npp.6.7.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "033",
+        "title": "[BUG] Negative repeat value in Column Editor causes hang",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15153",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Copy -1 to the clipboard\n2. Open Column Editor, select \"Number to Insert\", paste -1 into the \"Repeat\" field\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "034",
+        "title": "[BUG] Negative repeat value in Column Editor causes hang",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15153",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Copy -1 to the clipboard\n2. Open Column Editor, select \"Number to Insert\", paste -1 into the \"Repeat\" field\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "035",
+        "title": "[BUG] Negative repeat value in Column Editor causes hang",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15153",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Copy -1 to the clipboard\n2. Open Column Editor, select \"Number to Insert\", paste -1 into the \"Repeat\" field\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "036",
+        "title": "[BUG] Negative repeat value in Column Editor causes hang",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15153",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Copy -1 to the clipboard\n2. Open Column Editor, select \"Number to Insert\", paste -1 into the \"Repeat\" field\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "037",
+        "title": "[BUG] Negative repeat value in Column Editor causes hang",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15153",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Copy -1 to the clipboard\n2. Open Column Editor, select \"Number to Insert\", paste -1 into the \"Repeat\" field\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.5.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "038",
+        "title": "[BUG] Inserting numbers with Column Editor causes crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15144",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Select at least 28 lines in Column Mode or multi-select at least 28 positions\n2. Open Column Editor, select \"Number to Insert\", set \"Increase by\" to 9999999, \"Repeat\" to 1, and \"Format\" to \"Hex\"\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "",
+        "notes": ""
+    },
+    {
+        "bug_id": "039",
+        "title": "[BUG] Inserting numbers with Column Editor causes crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15144",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Select at least 28 lines in Column Mode or multi-select at least 28 positions\n2. Open Column Editor, select \"Number to Insert\", set \"Increase by\" to 9999999, \"Repeat\" to 1, and \"Format\" to \"Hex\"\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "",
+        "notes": ""
+    },
+    {
+        "bug_id": "040",
+        "title": "[BUG] Inserting numbers with Column Editor causes crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15144",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Select at least 28 lines in Column Mode or multi-select at least 28 positions\n2. Open Column Editor, select \"Number to Insert\", set \"Increase by\" to 9999999, \"Repeat\" to 1, and \"Format\" to \"Hex\"\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "",
+        "notes": ""
+    },
+    {
+        "bug_id": "041",
+        "title": "[BUG] Inserting numbers with Column Editor causes crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15144",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Select at least 28 lines in Column Mode or multi-select at least 28 positions\n2. Open Column Editor, select \"Number to Insert\", set \"Increase by\" to 9999999, \"Repeat\" to 1, and \"Format\" to \"Hex\"\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.6.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "",
+        "notes": ""
+    },
+    {
+        "bug_id": "042",
+        "title": "[BUG] Inserting numbers with Column Editor causes crash",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/15144",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Select at least 28 lines in Column Mode or multi-select at least 28 positions\n2. Open Column Editor, select \"Number to Insert\", set \"Increase by\" to 9999999, \"Repeat\" to 1, and \"Format\" to \"Hex\"\n3. Press \"OK\"",
+        "buggy_version": "npp.8.6.7",
+        "patched_version": "npp.8.5.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "",
+        "notes": ""
+    },
+    {
+        "bug_id": "043",
+        "title": "[BUG] Search Count can hang for a regex that matches null before a multi-byte utf-8 character",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/16207",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Paste a└c into an empty Notepad++ tab.\n2. Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\\u*(?=[^\\l]).\n3. Click Count.",
+        "buggy_version": "npp.8.7.7",
+        "patched_version": "npp.8.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "freeze",
+        "notes": "Be aware of escaped \\ in the regex string"
+    },
+    {
+        "bug_id": "044",
+        "title": "[BUG] Search Count can hang for a regex that matches null before a multi-byte utf-8 character",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/16207",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Paste a└c into an empty Notepad++ tab.\n2. Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\\u*(?=[^\\l]).\n3. Click Count.",
+        "buggy_version": "npp.8.7.7",
+        "patched_version": "npp.8.7.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "Be aware of escaped \\ in the regex string"
+    },
+    {
+        "bug_id": "045",
+        "title": "[BUG] Search Count can hang for a regex that matches null before a multi-byte utf-8 character",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/16207",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Paste a└c into an empty Notepad++ tab.\n2. Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\\u*(?=[^\\l]).\n3. Click Count.",
+        "buggy_version": "npp.8.7.7",
+        "patched_version": "npp.8.7.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "Be aware of escaped \\ in the regex string"
+    },
+    {
+        "bug_id": "046",
+        "title": "[BUG] Search Count can hang for a regex that matches null before a multi-byte utf-8 character",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/16207",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Paste a└c into an empty Notepad++ tab.\n2. Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\\u*(?=[^\\l]).\n3. Click Count.",
+        "buggy_version": "npp.8.7.7",
+        "patched_version": "npp.8.7.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "Be aware of escaped \\ in the regex string"
+    },
+    {
+        "bug_id": "047",
+        "title": "[BUG] Search Count can hang for a regex that matches null before a multi-byte utf-8 character",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/16207",
+        "steps_to_reproduce": "Steps To Reproduce\n1. Paste a└c into an empty Notepad++ tab.\n2. Open the Find dialog, set Search Mode: Regular expression, and Find what: (?-i)\\u*(?=[^\\l]).\n3. Click Count.",
+        "buggy_version": "npp.8.7.7",
+        "patched_version": "npp.8.6.9",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "Be aware of escaped \\ in the regex string"
+    },
+
+
+
+
+
+
+
+
+
+
+    {
+        "bug_id": "033",
         "title": "",
         "bug_report_url": "",
         "steps_to_reproduce": "",
-        "buggy_version": "",
-        "patched_version": "",
-        "is_fix_correct": "",    
+        "buggy_version": "npp.",
+        "patched_version": "npp.",
+        "is_fix_correct": "correct",    
         "crash_behavior": "",
         "notes": ""
-    },     
+    },
     {
-        "bug_id": "",
+        "bug_id": "033",
         "title": "",
         "bug_report_url": "",
         "steps_to_reproduce": "",
