@@ -290,4 +290,26 @@ Fixed Version: v8.7.8 (Confirmed)
 
 15. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865
 1 + 4 = 5 instances in dataset.json
+General Exception attı bunu muhtemelen anlayabiliyoruz ama aklında olsun
+
+
+16. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7708
+"Right Click" gerekiyor bunun için ama olsun
+
+bug_report="Steps to reproduce:
+
+1. Open Notepad++;
+
+2. Open 2 documents;
+
+3. Move one to Other View (righ click on tab -> Move To Other View);
+
+4. Create 2 new documents in Other View and add some text in it;
+
+5. Right click on new modified doc -> Close All Unchanged:
+
+6. Exception is thrown:"
+1 + 4 = 5 instances in dataset.json
+
+
 

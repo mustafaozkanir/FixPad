@@ -767,9 +767,63 @@
         "patched_version": "npp.7.6.4",
         "is_fix_correct": "incorrect",    
         "crash_behavior": "crash_pop-up",
-        "notes": ""
+        "notes": "pop-up title: General Exception"
     },
-
+    {
+        "bug_id": "071",
+        "title": "Close all Unchanged doesn't work for \"Other View\"",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7708",
+        "steps_to_reproduce": "Steps to reproduce:\n1. Open Notepad++;\n2. Open 2 documents;\n3. Move one to Other View (right click on tab -> Move To Other View);\n4. Create 2 new documents in Other View and add some text in it;\n5. Right click on new modified doc -> Close All Unchanged:\n6. Exception is thrown:",
+        "buggy_version": "npp.7.8.2",
+        "patched_version": "npp.7.8.3",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "Win32Exception"
+    },
+    {
+        "bug_id": "072",
+        "title": "Close all Unchanged doesn't work for \"Other View\"",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7708",
+        "steps_to_reproduce": "Steps to reproduce:\n1. Open Notepad++;\n2. Open 2 documents;\n3. Move one to Other View (right click on tab -> Move To Other View);\n4. Create 2 new documents in Other View and add some text in it;\n5. Right click on new modified doc -> Close All Unchanged:\n6. Exception is thrown:",
+        "buggy_version": "npp.7.8.2",
+        "patched_version": "npp.7.8.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "Win32Exception"
+    },
+    {
+        "bug_id": "073",
+        "title": "Close all Unchanged doesn't work for \"Other View\"",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7708",
+        "steps_to_reproduce": "Steps to reproduce:\n1. Open Notepad++;\n2. Open 2 documents;\n3. Move one to Other View (right click on tab -> Move To Other View);\n4. Create 2 new documents in Other View and add some text in it;\n5. Right click on new modified doc -> Close All Unchanged:\n6. Exception is thrown:",
+        "buggy_version": "npp.7.8.2",
+        "patched_version": "npp.7.8",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "Win32Exception"
+    },
+    {
+        "bug_id": "074",
+        "title": "Close all Unchanged doesn't work for \"Other View\"",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7708",
+        "steps_to_reproduce": "Steps to reproduce:\n1. Open Notepad++;\n2. Open 2 documents;\n3. Move one to Other View (right click on tab -> Move To Other View);\n4. Create 2 new documents in Other View and add some text in it;\n5. Right click on new modified doc -> Close All Unchanged:\n6. Exception is thrown:",
+        "buggy_version": "npp.7.8.2",
+        "patched_version": "npp.7.7.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "Win32Exception"
+    },
+    {
+        "bug_id": "075",
+        "title": "Close all Unchanged doesn't work for \"Other View\"",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7708",
+        "steps_to_reproduce": "Steps to reproduce:\n1. Open Notepad++;\n2. Open 2 documents;\n3. Move one to Other View (right click on tab -> Move To Other View);\n4. Create 2 new documents in Other View and add some text in it;\n5. Right click on new modified doc -> Close All Unchanged:\n6. Exception is thrown:",
+        "buggy_version": "npp.7.8.2",
+        "patched_version": "npp.7.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": "Win32Exception"
+    },
 
 
 
