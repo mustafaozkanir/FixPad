@@ -14,6 +14,7 @@ INSTALLER_DIR = "installers"  # Folder where all installers are stored
 INSTALLER_MAP = {
     "npp.6.2.3": "npp.6.2.3.Installer.exe",
     "npp.6.7.4": "npp.6.7.4.Installer.exe",
+    "npp.6.8.7": "npp.6.8.7.Installer.exe",
     "npp.6.9":   "npp.6.9.Installer.exe",
     "npp.7.3.3": "npp.7.3.3.Installer.exe",
     "npp.7.5.4": "npp.7.5.4.Installer.exe",

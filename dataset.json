@@ -515,12 +515,260 @@
         "is_fix_correct": "incorrect",    
         "crash_behavior": "freeze",
         "notes": "Be aware of escaped \\ in the regex string"
+    },    
+    {
+        "bug_id": "048",
+        "title": "NPP crash during column mode number insertion",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2820",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new, empty document in NPP\n2. Press and hold Alt+Shift and Right Arrow once to select the one character in the column\n3. Go to Edit > Column Editor...\n4. Select Number to Insert and fill in 1 for Initial Number, 1 for Increase By, 16 for Repeat, Check Leading Zeros\n5. Click OK",
+        "buggy_version": "npp.7",
+        "patched_version": "npp.7.3.3",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
     },
-
-
-
-
-
+    {
+        "bug_id": "049",
+        "title": "NPP crash during column mode number insertion",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2820",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new, empty document in NPP\n2. Press and hold Alt+Shift and Right Arrow once to select the one character in the column\n3. Go to Edit > Column Editor...\n4. Select Number to Insert and fill in 1 for Initial Number, 1 for Increase By, 16 for Repeat, Check Leading Zeros\n5. Click OK",
+        "buggy_version": "npp.7",
+        "patched_version": "npp.6.9",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "050",
+        "title": "NPP crash during column mode number insertion",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2820",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new, empty document in NPP\n2. Press and hold Alt+Shift and Right Arrow once to select the one character in the column\n3. Go to Edit > Column Editor...\n4. Select Number to Insert and fill in 1 for Initial Number, 1 for Increase By, 16 for Repeat, Check Leading Zeros\n5. Click OK",
+        "buggy_version": "npp.7",
+        "patched_version": "npp.6.8.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "051",
+        "title": "NPP crashes on unhiding lines",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12184",
+        "steps_to_reproduce": "STR:\nPaste the following lines in a new document.\n\nTest\nTest\nTest\nTest\nTest\nPlace the caret at line 3.\nView -> Hide Lines.\nPlace the caret at line 2.\nView -> Hide Lines.\nClick on the show-lines markers.\nYou should get this:\nClick on the single show-lines marker.\n\nResult:\nNPP crashes.",
+        "buggy_version": "npp.8.4.5",
+        "patched_version": "npp.8.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "052",
+        "title": "NPP crashes on unhiding lines",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12184",
+        "steps_to_reproduce": "STR:\nPaste the following lines in a new document.\n\nTest\nTest\nTest\nTest\nTest\nPlace the caret at line 3.\nView -> Hide Lines.\nPlace the caret at line 2.\nView -> Hide Lines.\nClick on the show-lines markers.\nYou should get this:\nClick on the single show-lines marker.\n\nResult:\nNPP crashes.",
+        "buggy_version": "npp.8.4.5",
+        "patched_version": "npp.8.4.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "053",
+        "title": "NPP crashes on unhiding lines",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12184",
+        "steps_to_reproduce": "STR:\nPaste the following lines in a new document.\n\nTest\nTest\nTest\nTest\nTest\nPlace the caret at line 3.\nView -> Hide Lines.\nPlace the caret at line 2.\nView -> Hide Lines.\nClick on the show-lines markers.\nYou should get this:\nClick on the single show-lines marker.\n\nResult:\nNPP crashes.",
+        "buggy_version": "npp.8.4.5",
+        "patched_version": "npp.8.4.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "054",
+        "title": "NPP crashes on unhiding lines",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12184",
+        "steps_to_reproduce": "STR:\nPaste the following lines in a new document.\n\nTest\nTest\nTest\nTest\nTest\nPlace the caret at line 3.\nView -> Hide Lines.\nPlace the caret at line 2.\nView -> Hide Lines.\nClick on the show-lines markers.\nYou should get this:\nClick on the single show-lines marker.\n\nResult:\nNPP crashes.",
+        "buggy_version": "npp.8.4.5",
+        "patched_version": "npp.8.4.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "055",
+        "title": "NPP crashes on unhiding lines",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12184",
+        "steps_to_reproduce": "STR:\nPaste the following lines in a new document.\n\nTest\nTest\nTest\nTest\nTest\nPlace the caret at line 3.\nView -> Hide Lines.\nPlace the caret at line 2.\nView -> Hide Lines.\nClick on the show-lines markers.\nYou should get this:\nClick on the single show-lines marker.\n\nResult:\nNPP crashes.",
+        "buggy_version": "npp.8.4.5",
+        "patched_version": "npp.8.4.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": ""
+    },
+    {
+        "bug_id": "056",
+        "title": "Notepad++ does not reset language styles when changing themes",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/9512",
+        "steps_to_reproduce": "Description of the Issue\nWhen switching themes, cancelling and then reopening the Style Configurator, the languages and their styles are mismatched.\nIf the new theme supports more languages than the old one, when selecting a language outside the range covered by the old one, if the language does not exist within the old theme, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Open the Style Configurator in Settings > Style Configurator\n2. Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian\n3. Save the theme\n4. Reopen the Style Configurator\n5. Change the theme from Obsidian to Default (stylers.xml)\n6. Press Cancel\n7. Reopen the Style Configurator again\n\nExpected Behavior\nThe languages should reset back to Obsidian's.\n\nActual Behavior\nThe languages remained from Default (stylers.xml).\nWhen selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.",
+        "buggy_version": "npp.7.9.2",
+        "patched_version": "npp.8.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "057",
+        "title": "Notepad++ does not reset language styles when changing themes",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/9512",
+        "steps_to_reproduce": "Description of the Issue\nWhen switching themes, cancelling and then reopening the Style Configurator, the languages and their styles are mismatched.\nIf the new theme supports more languages than the old one, when selecting a language outside the range covered by the old one, if the language does not exist within the old theme, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Open the Style Configurator in Settings > Style Configurator\n2. Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian\n3. Save the theme\n4. Reopen the Style Configurator\n5. Change the theme from Obsidian to Default (stylers.xml)\n6. Press Cancel\n7. Reopen the Style Configurator again\n\nExpected Behavior\nThe languages should reset back to Obsidian's.\n\nActual Behavior\nThe languages remained from Default (stylers.xml).\nWhen selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.",
+        "buggy_version": "npp.7.9.2",
+        "patched_version": "npp.7.8",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "058",
+        "title": "Notepad++ does not reset language styles when changing themes",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/9512",
+        "steps_to_reproduce": "Description of the Issue\nWhen switching themes, cancelling and then reopening the Style Configurator, the languages and their styles are mismatched.\nIf the new theme supports more languages than the old one, when selecting a language outside the range covered by the old one, if the language does not exist within the old theme, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Open the Style Configurator in Settings > Style Configurator\n2. Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian\n3. Save the theme\n4. Reopen the Style Configurator\n5. Change the theme from Obsidian to Default (stylers.xml)\n6. Press Cancel\n7. Reopen the Style Configurator again\n\nExpected Behavior\nThe languages should reset back to Obsidian's.\n\nActual Behavior\nThe languages remained from Default (stylers.xml).\nWhen selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.",
+        "buggy_version": "npp.7.9.2",
+        "patched_version": "npp.7.8.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "059",
+        "title": "Notepad++ does not reset language styles when changing themes",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/9512",
+        "steps_to_reproduce": "Description of the Issue\nWhen switching themes, cancelling and then reopening the Style Configurator, the languages and their styles are mismatched.\nIf the new theme supports more languages than the old one, when selecting a language outside the range covered by the old one, if the language does not exist within the old theme, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Open the Style Configurator in Settings > Style Configurator\n2. Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian\n3. Save the theme\n4. Reopen the Style Configurator\n5. Change the theme from Obsidian to Default (stylers.xml)\n6. Press Cancel\n7. Reopen the Style Configurator again\n\nExpected Behavior\nThe languages should reset back to Obsidian's.\n\nActual Behavior\nThe languages remained from Default (stylers.xml).\nWhen selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.",
+        "buggy_version": "npp.7.9.2",
+        "patched_version": "npp.7.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "060",
+        "title": "Notepad++ does not reset language styles when changing themes",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/9512",
+        "steps_to_reproduce": "Description of the Issue\nWhen switching themes, cancelling and then reopening the Style Configurator, the languages and their styles are mismatched.\nIf the new theme supports more languages than the old one, when selecting a language outside the range covered by the old one, if the language does not exist within the old theme, Notepad++ crashes.\n\nSteps to Reproduce the Issue\n1. Open the Style Configurator in Settings > Style Configurator\n2. Select a theme that supports less languages than Default (stylers.xml), i.e. Obsidian\n3. Save the theme\n4. Reopen the Style Configurator\n5. Change the theme from Obsidian to Default (stylers.xml)\n6. Press Cancel\n7. Reopen the Style Configurator again\n\nExpected Behavior\nThe languages should reset back to Obsidian's.\n\nActual Behavior\nThe languages remained from Default (stylers.xml).\nWhen selecting an item outside of the range covered by Obsidian that does not exist within that theme (for example Swift), Notepad++ crashes.",
+        "buggy_version": "npp.7.9.2",
+        "patched_version": "npp.7.7.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "061",
+        "title": "Delimiter selection crashes program",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12384",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (\") and close the Preferences window.\n2. Create new document (Ctrl + N), type something and press Enter to create a new line\n3. While holding the Left Control key, double click your left mouse button on the empty line\n4. Program should now close itself",
+        "buggy_version": "npp.8.4.6",
+        "patched_version": "npp.8.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "062",
+        "title": "Delimiter selection crashes program",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12384",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (\") and close the Preferences window.\n2. Create new document (Ctrl + N), type something and press Enter to create a new line\n3. While holding the Left Control key, double click your left mouse button on the empty line\n4. Program should now close itself",
+        "buggy_version": "npp.8.4.6",
+        "patched_version": "npp.8.4.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "063",
+        "title": "Delimiter selection crashes program",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12384",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (\") and close the Preferences window.\n2. Create new document (Ctrl + N), type something and press Enter to create a new line\n3. While holding the Left Control key, double click your left mouse button on the empty line\n4. Program should now close itself",
+        "buggy_version": "npp.8.4.6",
+        "patched_version": "npp.8.4.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "064",
+        "title": "Delimiter selection crashes program",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12384",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (\") and close the Preferences window.\n2. Create new document (Ctrl + N), type something and press Enter to create a new line\n3. While holding the Left Control key, double click your left mouse button on the empty line\n4. Program should now close itself",
+        "buggy_version": "npp.8.4.6",
+        "patched_version": "npp.8.4.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "065",
+        "title": "Delimiter selection crashes program",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/12384",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Go to: Settings → Preferences... → Delimiter → Switch open and close characters to quotation mark (\") and close the Preferences window.\n2. Create new document (Ctrl + N), type something and press Enter to create a new line\n3. While holding the Left Control key, double click your left mouse button on the empty line\n4. Program should now close itself",
+        "buggy_version": "npp.8.4.6",
+        "patched_version": "npp.8.4.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "066",
+        "title": "Sorting by decimal numbers when there are empty lines in column selecting causes the program to EXPLODE",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865",
+        "steps_to_reproduce": "Suppose you make a text, like this:\n\n100/20  = 5\n\n1/3     = 0.333\n\n22/7    = 3.14285714286\n\nPlease note that empty lines between the numbers are intentional.\n\nNow column-select the numbers to the right of the equals sign, then go to the menu bar -> Edit -> Line Operations -> Sort Lines as Decimals (dot) Ascending or Descending.",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.8",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "067",
+        "title": "Sorting by decimal numbers when there are empty lines in column selecting causes the program to EXPLODE",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865",
+        "steps_to_reproduce": "Suppose you make a text, like this:\n\n100/20  = 5\n\n1/3     = 0.333\n\n22/7    = 3.14285714286\n\nPlease note that empty lines between the numbers are intentional.\n\nNow column-select the numbers to the right of the equals sign, then go to the menu bar -> Edit -> Line Operations -> Sort Lines as Decimals (dot) Ascending or Descending.",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.5.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "068",
+        "title": "Sorting by decimal numbers when there are empty lines in column selecting causes the program to EXPLODE",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865",
+        "steps_to_reproduce": "Suppose you make a text, like this:\n\n100/20  = 5\n\n1/3     = 0.333\n\n22/7    = 3.14285714286\n\nPlease note that empty lines between the numbers are intentional.\n\nNow column-select the numbers to the right of the equals sign, then go to the menu bar -> Edit -> Line Operations -> Sort Lines as Decimals (dot) Ascending or Descending.",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.5.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "069",
+        "title": "Sorting by decimal numbers when there are empty lines in column selecting causes the program to EXPLODE",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865",
+        "steps_to_reproduce": "Suppose you make a text, like this:\n\n100/20  = 5\n\n1/3     = 0.333\n\n22/7    = 3.14285714286\n\nPlease note that empty lines between the numbers are intentional.\n\nNow column-select the numbers to the right of the equals sign, then go to the menu bar -> Edit -> Line Operations -> Sort Lines as Decimals (dot) Ascending or Descending.",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.6.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
+    {
+        "bug_id": "070",
+        "title": "Sorting by decimal numbers when there are empty lines in column selecting causes the program to EXPLODE",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865",
+        "steps_to_reproduce": "Suppose you make a text, like this:\n\n100/20  = 5\n\n1/3     = 0.333\n\n22/7    = 3.14285714286\n\nPlease note that empty lines between the numbers are intentional.\n\nNow column-select the numbers to the right of the equals sign, then go to the menu bar -> Edit -> Line Operations -> Sort Lines as Decimals (dot) Ascending or Descending.",
+        "buggy_version": "npp.7.3.3",
+        "patched_version": "npp.7.6.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "crash_pop-up",
+        "notes": ""
+    },
 
 
 

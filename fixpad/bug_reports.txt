@@ -219,6 +219,8 @@ Buggy Version: v7
 Fixed Version: 7.3.2
 REPRODUCTION UNSUCCESSFULL
 
+1 + 2 = 3 instances in dataset.json
+
 
 12.
 bug_report = """STR:
@@ -243,6 +245,10 @@ Buggy Version: v8.4.5 (Confirmed)
 Fixed Version: v8.7.8 
 REPRODUCTION UNSUCCESSFULL
 
+1 + 4 = 5 instances in dataset.json
+
+
+
 13.
 bug_report ="""
 Steps to Reproduce the Issue
@@ -265,6 +271,8 @@ When selecting an item outside of the range covered by Obsidian that does not ex
 Buggy Version: v7.9.2 (Confirmed)
 Fixed Version: v8.7.8 (Confirmed)
 
+1 + 4 = 5 instances in dataset.json
+
 
 14.
 bug_report="""
@@ -275,10 +283,11 @@ Program should now close itself
 """
 
 (Alamıyoruz: Close delimiterına tıklayamıyor)
-Buggy Version: v8.4.6 Confirmed)
+Buggy Version: v8.4.6 (Confirmed)
 Fixed Version: v8.7.8 (Confirmed)
 
+1 + 4 = 5 instances in dataset.json
 
-
-15. Yeni bir tane buldum onu ekleyeceğim
+15. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/5865
+1 + 4 = 5 instances in dataset.json
 
