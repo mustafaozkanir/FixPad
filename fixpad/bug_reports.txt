@@ -311,5 +311,17 @@ bug_report="Steps to reproduce:
 6. Exception is thrown:"
 1 + 4 = 5 instances in dataset.json
 
+17. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/13342
+1 + 4 = 5 instances in dataset.json
 
+18. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11257
+1 + 4 = 5 instances in dataset.json
 
+19. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10534
+1 + 4 = 5 instances in dataset.json
+
+20. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10290
+1 + 4 = 5 instances in dataset.json
+
+21. https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7995
+1 + 3 = 4 instances in dataset.json

@@ -1,9 +1,12 @@
-from pywinauto import Application
-from pywinauto.findwindows import find_elements
-from env_manager import detect_crash
-import pyautogui as py
-from time import sleep
+import time
+from env_manager import detect_crash  # import your detection logic
 
+print("🔍 Watching for Notepad++ crash...")
 
-sleep(3)
-py.hotkey('altleft', 'shiftleft', 'right')
+while True:
+    if detect_crash():
+        print("❗Crash detected!")
+        break
+    else:
+        print("✅ No crash.")
+    time.sleep(2)  # Check every 2 seconds

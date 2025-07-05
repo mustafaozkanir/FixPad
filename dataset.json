@@ -824,9 +824,339 @@
         "crash_behavior": "crash_pop-up",
         "notes": "Win32Exception"
     },
+    {
+        "bug_id": "076",
+        "title": "A recorded macro with \"Find Next\" and then \"Run until the end of file\" crashes Notepad++",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/13342",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\nExample file:\n<mappingPart>\n  <source column=\"v_0\" />\n  <destination observationCode=\"demin_leefstij1_0\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_1\" />\n  <destination observationCode=\"demin_leefstij1_1\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_2\" />\n  <destination observationCode=\"demin_leefstij1_2\" />\n</mappingPart>\n\n1. Type the text pivotResultColumn=\"data\" /> , select & copy/cut it so it's on the clipboard\n2. Go to beginning of the example file\n3. Go to menu Macro > Start recording\n4. Ctrl+F to find next <source column=\"v\" to move the cursor to next instance\n5. Press End key to go to end of that line\n6. Select last two characters />\n7. Paste pivotResultColumn=\"data\" />\n8. Go to menu Macro > Stop recording\n9. Now go to Macro > Run a Macro Multiple times\n10. Select Run until the end of file and press OK.",
+        "buggy_version": "npp.8.4.8",
+        "patched_version": "npp.8.5.4",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "freeze",
+        "notes": "For some versions it takes while before the application freezes"
+    },
+    {
+        "bug_id": "077",
+        "title": "A recorded macro with \"Find Next\" and then \"Run until the end of file\" crashes Notepad++",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/13342",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\nExample file:\n<mappingPart>\n  <source column=\"v_0\" />\n  <destination observationCode=\"demin_leefstij1_0\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_1\" />\n  <destination observationCode=\"demin_leefstij1_1\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_2\" />\n  <destination observationCode=\"demin_leefstij1_2\" />\n</mappingPart>\n\n1. Type the text pivotResultColumn=\"data\" /> , select & copy/cut it so it's on the clipboard\n2. Go to beginning of the example file\n3. Go to menu Macro > Start recording\n4. Ctrl+F to find next <source column=\"v\" to move the cursor to next instance\n5. Press End key to go to end of that line\n6. Select last two characters />\n7. Paste pivotResultColumn=\"data\" />\n8. Go to menu Macro > Stop recording\n9. Now go to Macro > Run a Macro Multiple times\n10. Select Run until the end of file and press OK.",
+        "buggy_version": "npp.8.4.8",
+        "patched_version": "npp.8.4.9",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "For some versions it takes while before the application freezes"
+    },
+    {
+        "bug_id": "078",
+        "title": "A recorded macro with \"Find Next\" and then \"Run until the end of file\" crashes Notepad++",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/13342",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\nExample file:\n<mappingPart>\n  <source column=\"v_0\" />\n  <destination observationCode=\"demin_leefstij1_0\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_1\" />\n  <destination observationCode=\"demin_leefstij1_1\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_2\" />\n  <destination observationCode=\"demin_leefstij1_2\" />\n</mappingPart>\n\n1. Type the text pivotResultColumn=\"data\" /> , select & copy/cut it so it's on the clipboard\n2. Go to beginning of the example file\n3. Go to menu Macro > Start recording\n4. Ctrl+F to find next <source column=\"v\" to move the cursor to next instance\n5. Press End key to go to end of that line\n6. Select last two characters />\n7. Paste pivotResultColumn=\"data\" />\n8. Go to menu Macro > Stop recording\n9. Now go to Macro > Run a Macro Multiple times\n10. Select Run until the end of file and press OK.",
+        "buggy_version": "npp.8.4.8",
+        "patched_version": "npp.8.4.7",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "For some versions it takes while before the application freezes"
+    },
+    {
+        "bug_id": "079",
+        "title": "A recorded macro with \"Find Next\" and then \"Run until the end of file\" crashes Notepad++",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/13342",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\nExample file:\n<mappingPart>\n  <source column=\"v_0\" />\n  <destination observationCode=\"demin_leefstij1_0\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_1\" />\n  <destination observationCode=\"demin_leefstij1_1\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_2\" />\n  <destination observationCode=\"demin_leefstij1_2\" />\n</mappingPart>\n\n1. Type the text pivotResultColumn=\"data\" /> , select & copy/cut it so it's on the clipboard\n2. Go to beginning of the example file\n3. Go to menu Macro > Start recording\n4. Ctrl+F to find next <source column=\"v\" to move the cursor to next instance\n5. Press End key to go to end of that line\n6. Select last two characters />\n7. Paste pivotResultColumn=\"data\" />\n8. Go to menu Macro > Stop recording\n9. Now go to Macro > Run a Macro Multiple times\n10. Select Run until the end of file and press OK.",
+        "buggy_version": "npp.8.4.8",
+        "patched_version": "npp.8.4.6",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "For some versions it takes while before the application freezes"
+    },
+    {
+        "bug_id": "080",
+        "title": "A recorded macro with \"Find Next\" and then \"Run until the end of file\" crashes Notepad++",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/13342",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\nExample file:\n<mappingPart>\n  <source column=\"v_0\" />\n  <destination observationCode=\"demin_leefstij1_0\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_1\" />\n  <destination observationCode=\"demin_leefstij1_1\" />\n</mappingPart>\n<mappingPart>\n  <source column=\"v_2\" />\n  <destination observationCode=\"demin_leefstij1_2\" />\n</mappingPart>\n\n1. Type the text pivotResultColumn=\"data\" /> , select & copy/cut it so it's on the clipboard\n2. Go to beginning of the example file\n3. Go to menu Macro > Start recording\n4. Ctrl+F to find next <source column=\"v\" to move the cursor to next instance\n5. Press End key to go to end of that line\n6. Select last two characters />\n7. Paste pivotResultColumn=\"data\" />\n8. Go to menu Macro > Stop recording\n9. Now go to Macro > Run a Macro Multiple times\n10. Select Run until the end of file and press OK.",
+        "buggy_version": "npp.8.4.8",
+        "patched_version": "npp.8.4.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "freeze",
+        "notes": "For some versions it takes while before the application freezes"
+    },
+    {
+        "bug_id": "081",
+        "title": "User Defined Language crash issue on over 30 created UDL",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11257",
+        "steps_to_reproduce": "Description of the Issue\nIf user create User Defined Language over 30 times, app crash.\n\nSteps to Reproduce the Issue\n1.Click Create New button and input random name.\n2.Repeat 28 times (because two preinstalled language exist)\n3.Now create new language will crash app.\n",
+        "buggy_version": "npp.8.3.1",
+        "patched_version": "npp.8.3.3",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "082",
+        "title": "User Defined Language crash issue on over 30 created UDL",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11257",
+        "steps_to_reproduce": "Description of the Issue\nIf user create User Defined Language over 30 times, app crash.\n\nSteps to Reproduce the Issue\n1.Click Create New button and input random name.\n2.Repeat 28 times (because two preinstalled language exist)\n3.Now create new language will crash app.\n",
+        "buggy_version": "npp.8.3.1",
+        "patched_version": "npp.8.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "083",
+        "title": "User Defined Language crash issue on over 30 created UDL",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11257",
+        "steps_to_reproduce": "Description of the Issue\nIf user create User Defined Language over 30 times, app crash.\n\nSteps to Reproduce the Issue\n1.Click Create New button and input random name.\n2.Repeat 28 times (because two preinstalled language exist)\n3.Now create new language will crash app.\n",
+        "buggy_version": "npp.8.3.1",
+        "patched_version": "npp.8.2.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "084",
+        "title": "User Defined Language crash issue on over 30 created UDL",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11257",
+        "steps_to_reproduce": "Description of the Issue\nIf user create User Defined Language over 30 times, app crash.\n\nSteps to Reproduce the Issue\n1.Click Create New button and input random name.\n2.Repeat 28 times (because two preinstalled language exist)\n3.Now create new language will crash app.\n",
+        "buggy_version": "npp.8.3.1",
+        "patched_version": "npp.8.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "085",
+        "title": "User Defined Language crash issue on over 30 created UDL",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/11257",
+        "steps_to_reproduce": "Description of the Issue\nIf user create User Defined Language over 30 times, app crash.\n\nSteps to Reproduce the Issue\n1.Click Create New button and input random name.\n2.Repeat 28 times (because two preinstalled language exist)\n3.Now create new language will crash app.\n",
+        "buggy_version": "npp.8.3.1",
+        "patched_version": "npp.8.1.9.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "086",
+        "title": "Crash in regex search",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10773",
+        "steps_to_reproduce": "Description of the Issue\nSpecific wrong regex [a-é cause Notepad++ to crash\n\nSteps to Reproduce the Issue\n1. Open search dialog and search for [a-é \n2. Enable Regular Expression search mode\n3. Press Find Next",
+        "buggy_version": "npp.8.1.5",
+        "patched_version": "npp.8.1.9.2",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "087",
+        "title": "Crash in regex search",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10773",
+        "steps_to_reproduce": "Description of the Issue\nSpecific wrong regex [a-é cause Notepad++ to crash\n\nSteps to Reproduce the Issue\n1. Open search dialog and search for [a-é \n2. Enable Regular Expression search mode\n3. Press Find Next",
+        "buggy_version": "npp.8.1.5",
+        "patched_version": "npp.8.1.4",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "088",
+        "title": "Crash in regex search",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10773",
+        "steps_to_reproduce": "Description of the Issue\nSpecific wrong regex [a-é cause Notepad++ to crash\n\nSteps to Reproduce the Issue\n1. Open search dialog and search for [a-é \n2. Enable Regular Expression search mode\n3. Press Find Next",
+        "buggy_version": "npp.8.1.5",
+        "patched_version": "npp.8.1.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "089",
+        "title": "Crash in regex search",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10773",
+        "steps_to_reproduce": "Description of the Issue\nSpecific wrong regex [a-é cause Notepad++ to crash\n\nSteps to Reproduce the Issue\n1. Open search dialog and search for [a-é \n2. Enable Regular Expression search mode\n3. Press Find Next",
+        "buggy_version": "npp.8.1.5",
+        "patched_version": "npp.8.1.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "090",
+        "title": "Crash in regex search",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10773",
+        "steps_to_reproduce": "Description of the Issue\nSpecific wrong regex [a-é cause Notepad++ to crash\n\nSteps to Reproduce the Issue\n1. Open search dialog and search for [a-é \n2. Enable Regular Expression search mode\n3. Press Find Next",
+        "buggy_version": "npp.8.1.5",
+        "patched_version": "npp.8.1.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "091",
+        "title": "Invalid regex string containing scandinavian characters closes application abruptly ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10534",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new document\n2. Add some text\n3. Search for the following invalid regex expression: [a-zæøå'- ]*",
+        "buggy_version": "npp.8.1.4",
+        "patched_version": "npp.8.1.9.2",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "092",
+        "title": "Invalid regex string containing scandinavian characters closes application abruptly ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10534",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new document\n2. Add some text\n3. Search for the following invalid regex expression: [a-zæøå'- ]*",
+        "buggy_version": "npp.8.1.4",
+        "patched_version": "npp.8.1.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "093",
+        "title": "Invalid regex string containing scandinavian characters closes application abruptly ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10534",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new document\n2. Add some text\n3. Search for the following invalid regex expression: [a-zæøå'- ]*",
+        "buggy_version": "npp.8.1.4",
+        "patched_version": "npp.8.1.3",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "094",
+        "title": "Invalid regex string containing scandinavian characters closes application abruptly ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10534",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new document\n2. Add some text\n3. Search for the following invalid regex expression: [a-zæøå'- ]*",
+        "buggy_version": "npp.8.1.4",
+        "patched_version": "npp.8.1.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "095",
+        "title": "Invalid regex string containing scandinavian characters closes application abruptly ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10534",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open a new document\n2. Add some text\n3. Search for the following invalid regex expression: [a-zæøå'- ]*",
+        "buggy_version": "npp.8.1.4",
+        "patched_version": "npp.8.1.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "096",
+        "title": "Bug in CustomFileDialog, when trying to close multiple of them, result in nullptr and crash ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10290",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open Npp, create a new empty tab, write something in it to make it dirty.\n2. In \"Run a Macro Multiple Times\" dialog, choose Trailing space and save, click the \"run\" btn multiple times.\n3. Dismiss the Save-as dialogs.",
+        "buggy_version": "npp.8.1.2",
+        "patched_version": "npp.8.1.3",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "097",
+        "title": "Bug in CustomFileDialog, when trying to close multiple of them, result in nullptr and crash ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10290",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open Npp, create a new empty tab, write something in it to make it dirty.\n2. In \"Run a Macro Multiple Times\" dialog, choose Trailing space and save, click the \"run\" btn multiple times.\n3. Dismiss the Save-as dialogs.",
+        "buggy_version": "npp.8.1.2",
+        "patched_version": "npp.8.1.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "098",
+        "title": "Bug in CustomFileDialog, when trying to close multiple of them, result in nullptr and crash ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10290",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open Npp, create a new empty tab, write something in it to make it dirty.\n2. In \"Run a Macro Multiple Times\" dialog, choose Trailing space and save, click the \"run\" btn multiple times.\n3. Dismiss the Save-as dialogs.",
+        "buggy_version": "npp.8.1.2",
+        "patched_version": "npp.8.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "099",
+        "title": "Bug in CustomFileDialog, when trying to close multiple of them, result in nullptr and crash ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10290",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open Npp, create a new empty tab, write something in it to make it dirty.\n2. In \"Run a Macro Multiple Times\" dialog, choose Trailing space and save, click the \"run\" btn multiple times.\n3. Dismiss the Save-as dialogs.",
+        "buggy_version": "npp.8.1.2",
+        "patched_version": "npp.8.0",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "100",
+        "title": "Bug in CustomFileDialog, when trying to close multiple of them, result in nullptr and crash ",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/10290",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open Npp, create a new empty tab, write something in it to make it dirty.\n2. In \"Run a Macro Multiple Times\" dialog, choose Trailing space and save, click the \"run\" btn multiple times.\n3. Dismiss the Save-as dialogs.",
+        "buggy_version": "npp.8.1.2",
+        "patched_version": "npp.7.9.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "101",
+        "title": "Application crash on replace in files",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7995",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open the \"Find in files...\" window\n2. Click on \"Replace in files\"\n3. Click on \"Replace in files\"",
+        "buggy_version": "npp.7.8.3",
+        "patched_version": "npp.7.8.6",
+        "is_fix_correct": "correct",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "101",
+        "title": "Application crash on replace in files",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7995",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open the \"Find in files...\" window\n2. Click on \"Replace in files\"\n3. Click on \"Replace in files\"",
+        "buggy_version": "npp.7.8.3",
+        "patched_version": "npp.7.8.2",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "102",
+        "title": "Application crash on replace in files",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7995",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open the \"Find in files...\" window\n2. Click on \"Replace in files\"\n3. Click on \"Replace in files\"",
+        "buggy_version": "npp.7.8.3",
+        "patched_version": "npp.7.8.1",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "103",
+        "title": "Application crash on replace in files",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7995",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open the \"Find in files...\" window\n2. Click on \"Replace in files\"\n3. Click on \"Replace in files\"",
+        "buggy_version": "npp.7.8.3",
+        "patched_version": "npp.7.8",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
+    {
+        "bug_id": "104",
+        "title": "Application crash on replace in files",
+        "bug_report_url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/7995",
+        "steps_to_reproduce": "Steps to Reproduce the Issue\n1. Open the \"Find in files...\" window\n2. Click on \"Replace in files\"\n3. Click on \"Replace in files\"",
+        "buggy_version": "npp.7.8.3",
+        "patched_version": "npp.7.8.5",
+        "is_fix_correct": "incorrect",    
+        "crash_behavior": "application_window_closure",
+        "notes": ""
+    },
 
 
-
+    
 
     {
         "bug_id": "033",
